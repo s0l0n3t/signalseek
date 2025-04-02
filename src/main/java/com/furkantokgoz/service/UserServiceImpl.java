@@ -2,12 +2,12 @@ package com.furkantokgoz.service;
 
 import com.furkantokgoz.dto.UserDto;
 import com.furkantokgoz.entity.UserEntity;
+import com.furkantokgoz.exception.UserNotFoundException;
 import com.furkantokgoz.mapper.UserMapper;
 import com.furkantokgoz.repository.UserRepository;
 import com.sun.jdi.request.DuplicateRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
@@ -16,7 +16,7 @@ import java.util.*;
 @Service
 public class UserServiceImpl implements IUserService {
 
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
@@ -24,6 +24,8 @@ public class UserServiceImpl implements IUserService {
     }
     @Override
     public UserDto createUser(UserDto userDto){
+        userDto.setUserKey(userDto.getUserKey().toLowerCase(Locale.ENGLISH));
+        userDto.setRoomKey(userDto.getRoomKey().toLowerCase(Locale.ENGLISH));
         if(userRepository.existsByUserKey(userDto.getUserKey())){
 //Conflict response error.
             throw new DuplicateRequestException(userDto.getUserKey() + " already exists");
@@ -40,14 +42,14 @@ public class UserServiceImpl implements IUserService {
         return dtos;
     }
     @Override
-    public ResponseEntity<UserDto> getUserById(Long id){//null error
+    public UserDto getUserById(Long id){//null error
         return userRepository.findById(id)
-                .map(userEntity -> ResponseEntity.ok(UserMapper.toDto(userEntity)))
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+                .map(userEntity -> UserMapper.toDto(userEntity))
+                .orElseThrow(() -> new UserNotFoundException(String.valueOf(id)));
     }
     @Override
     public UserDto getUserByUserKey(String userKey){//null error
-        return UserMapper.toDto(userRepository.findByUserKey(userKey).orElseThrow(() -> new ResourceNotFoundException("User not found")));
+        return UserMapper.toDto(userRepository.findByUserKey(userKey).orElseThrow(() -> new UserNotFoundException(userKey)));
     }
     @Override
     public UserDto updateUser(Long id, UserDto userDto){
@@ -62,11 +64,23 @@ public class UserServiceImpl implements IUserService {
             userRepository.save(newUserEntity);
             return userDto;
     }
+    @Override
     public UserDto deleteUser(Long id) throws Throwable{
-        UserEntity findeduser = userRepository.findById(id).orElseThrow(() -> new Throwable("User not found"));
+        UserEntity findeduser = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(String.valueOf(id)));
         userRepository.deleteById(id);
         return UserMapper.toDto(findeduser);
     }
-
-    //getipaddressmetod
+    @Override
+    public UserDto getUserByIpAddress(String ipAddress) throws Throwable{
+        return  UserMapper.toDto(userRepository.findByIpAddress(ipAddress).orElseThrow(() -> new UserNotFoundException(ipAddress)));
+    }
+    @Override
+    public List<UserDto> getUserByRoomKey(String roomKey){
+        List<UserDto> userDtoList = new ArrayList<>();
+        List<UserEntity> userEntities = userRepository.findByRoomKey(roomKey).orElseThrow(() -> new ResourceNotFoundException("Roomkey not found"));
+        for(UserEntity userEntity : userEntities){
+            userDtoList.add(UserMapper.toDto(userEntity));
+        }
+        return userDtoList;
+    }
 }

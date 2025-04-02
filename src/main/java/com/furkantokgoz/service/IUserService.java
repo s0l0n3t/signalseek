@@ -12,8 +12,10 @@ import java.util.Map;
 public interface IUserService {
     public List<UserDto> getAllUsers();
     public UserDto createUser(UserDto userDto);
-    public ResponseEntity<UserDto> getUserById(Long id);
+    public UserDto getUserById(Long id);
     public UserDto getUserByUserKey(String userKey);
     public UserDto updateUser(Long id, UserDto userDto);
     public UserDto deleteUser(Long id) throws Throwable;
+    public UserDto getUserByIpAddress(String ipAddress) throws Throwable;
+    public List<UserDto> getUserByRoomKey(String roomKey) throws Throwable;
 }

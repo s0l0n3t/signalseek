@@ -6,11 +6,12 @@ import com.furkantokgoz.entity.UserEntity;
 public class UserMapper {
     public static UserDto toDto(UserEntity userEntity) {
         return UserDto.builder()
-                .id(userEntity.getId())
-                .userKey(userEntity.getUserKey())
-                .ipAddress(userEntity.getIpAddress())
-                .latitude(userEntity.getLatitude())
-                .longitude(userEntity.getLongitude())
+                .id((int)userEntity.getId())
+                .userKey(userEntity.getUserKey() != null ? userEntity.getUserKey() : "test1")
+                .ipAddress(userEntity.getIpAddress() != null ? userEntity.getIpAddress() : "128.0.0.1")
+                .latitude(userEntity.getLatitude() != null ? userEntity.getLatitude() : 0.0)
+                .longitude(userEntity.getLongitude() != null ? userEntity.getLongitude() : 0.0)
+                .roomKey(userEntity.getRoomKey() != null ? userEntity.getRoomKey() : "none")
                 .build();
 
     }
@@ -21,6 +22,7 @@ public class UserMapper {
                 .ipAddress(userDto.getIpAddress())
                 .latitude(userDto.getLatitude())
                 .longitude(userDto.getLongitude())
+                .roomKey(userDto.getRoomKey())
                 .build();
     }
 }
