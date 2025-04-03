@@ -15,7 +15,7 @@ public interface IUserService {
     public UserDto getUserById(Long id);
     public UserDto getUserByUserKey(String userKey);
     public UserDto updateUser(Long id, UserDto userDto);
-    public UserDto deleteUser(Long id) throws Throwable;
-    public UserDto getUserByIpAddress(String ipAddress) throws Throwable;
+    public UserDto deleteUser(String userKey);
+    public UserDto getUserByIpAddress(String ipAddress);
     public List<UserDto> getUserByRoomKey(String roomKey) throws Throwable;
 }

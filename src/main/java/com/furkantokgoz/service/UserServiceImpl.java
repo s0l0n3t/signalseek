@@ -7,7 +7,6 @@ import com.furkantokgoz.mapper.UserMapper;
 import com.furkantokgoz.repository.UserRepository;
 import com.sun.jdi.request.DuplicateRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 
@@ -28,7 +27,7 @@ public class UserServiceImpl implements IUserService {
         userDto.setRoomKey(userDto.getRoomKey().toLowerCase(Locale.ENGLISH));
         if(userRepository.existsByUserKey(userDto.getUserKey())){
 //Conflict response error.
-            throw new DuplicateRequestException(userDto.getUserKey() + " already exists");
+            throw new DuplicateRequestException(userDto.getUserKey() + " is already in use");
         }
             UserEntity userEntity = UserMapper.toEntity(userDto);
             userRepository.save(userEntity);
@@ -54,9 +53,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public UserDto updateUser(Long id, UserDto userDto){
         UserEntity userEntity = UserMapper.toEntity(userDto);
+//            UserEntity newUserEntity = userRepository.findById(id)
+//                            .orElseGet(() -> userRepository.save(userEntity));
+        // if there not exist, it will create. But i don't want to create.
             UserEntity newUserEntity = userRepository.findById(id)
-                            .orElseGet(() -> userRepository.save(userEntity));
-        // if there not exist, it will create
+                            .orElseThrow(() -> new UserNotFoundException(String.valueOf(id)));
             newUserEntity.setUserKey(userEntity.getUserKey());
             newUserEntity.setIpAddress(userEntity.getIpAddress());
             newUserEntity.setLatitude(userEntity.getLatitude());
@@ -65,22 +66,26 @@ public class UserServiceImpl implements IUserService {
             return userDto;
     }
     @Override
-    public UserDto deleteUser(Long id) throws Throwable{
-        UserEntity findeduser = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(String.valueOf(id)));
-        userRepository.deleteById(id);
+    public UserDto deleteUser(String userKey){
+        UserEntity findeduser = userRepository.findByUserKey(userKey).orElseThrow(() -> new UserNotFoundException(userKey));
+        userRepository.deleteById(findeduser.getId());
         return UserMapper.toDto(findeduser);
     }
     @Override
-    public UserDto getUserByIpAddress(String ipAddress) throws Throwable{
+    public UserDto getUserByIpAddress(String ipAddress){
         return  UserMapper.toDto(userRepository.findByIpAddress(ipAddress).orElseThrow(() -> new UserNotFoundException(ipAddress)));
     }
     @Override
     public List<UserDto> getUserByRoomKey(String roomKey){
         List<UserDto> userDtoList = new ArrayList<>();
-        List<UserEntity> userEntities = userRepository.findByRoomKey(roomKey).orElseThrow(() -> new ResourceNotFoundException("Roomkey not found"));
+        if(!userRepository.existsByRoomKey(roomKey)){
+            throw new UserNotFoundException(roomKey);
+        }
+        List<UserEntity> userEntities = userRepository.findByRoomKey(roomKey).orElseThrow(() -> new UserNotFoundException(roomKey));
         for(UserEntity userEntity : userEntities){
             userDtoList.add(UserMapper.toDto(userEntity));
         }
         return userDtoList;
     }
+
 }

@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
-    @ExceptionHandler
+    @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleUserNotFoundException(UserNotFoundException exception) {
         ErrorResponse errorResponse = new ErrorResponse(
                 exception.getMessage(),
@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
         //UserNotFoundException handling
     }
-    @ExceptionHandler
+    @ExceptionHandler(NullPointerException.class)
     public ResponseEntity<ErrorResponse> handleNullPointerException(NullPointerException exception) {
         ErrorResponse errorResponse = new ErrorResponse(
                 exception.getMessage(),
@@ -37,8 +37,8 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
-    @ExceptionHandler
-    public ResponseEntity<ErrorResponse> handleException(DuplicateRequestException exception) {
+    @ExceptionHandler(DuplicateRequestException.class)
+    public ResponseEntity<ErrorResponse> handleDuplicateException(DuplicateRequestException exception) {
         ErrorResponse errorResponse = new ErrorResponse(
                 exception.getMessage(),
                 HttpStatus.CONFLICT.value()

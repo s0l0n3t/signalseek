@@ -1,6 +1,7 @@
 package com.furkantokgoz.repository;
 
 import com.furkantokgoz.entity.UserEntity;
+import org.apache.catalina.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +14,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Boolean existsByUserKey(String userKey);
     Optional<UserEntity> findByIpAddress(String ipAddress);
     Optional<List<UserEntity>> findByRoomKey(String roomKey);
+    Boolean existsByRoomKey(String roomKey);
     //Optional object is more safe. Throwing exceptions and more.
 }
