@@ -1,6 +1,8 @@
 package com.furkantokgoz.exception;
 
 import com.sun.jdi.request.DuplicateRequestException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +14,15 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException exception) {
         ErrorResponse errorResponse = new ErrorResponse(
                 exception.getMessage(),
                 HttpStatus.NOT_FOUND.value()
         );
+        logger.error(exception.getMessage() + " not found");
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
     @ExceptionHandler(UserNotFoundException.class)
@@ -26,6 +31,7 @@ public class GlobalExceptionHandler {
                 exception.getMessage(),
                 HttpStatus.NOT_FOUND.value()
         );
+        logger.error(exception.getMessage() + " not found");
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
         //UserNotFoundException handling
     }
@@ -35,6 +41,7 @@ public class GlobalExceptionHandler {
                 exception.getMessage(),
                 HttpStatus.BAD_REQUEST.value()
         );
+        logger.error((exception.getMessage()));
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(DuplicateRequestException.class)
@@ -43,6 +50,7 @@ public class GlobalExceptionHandler {
                 exception.getMessage(),
                 HttpStatus.CONFLICT.value()
         );
+        logger.error(exception.getMessage() + " duplicate request");
         return new ResponseEntity<>(errorResponse,HttpStatus.CONFLICT);
     }
 }

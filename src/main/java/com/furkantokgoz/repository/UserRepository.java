@@ -12,8 +12,9 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Optional<UserEntity> findByUserKey(String userKey);
     Boolean existsByUserKey(String userKey);
-    Optional<UserEntity> findByIpAddress(String ipAddress);
+    Optional<List<UserEntity>> findByIpAddress(String ipAddress);
     Optional<List<UserEntity>> findByRoomKey(String roomKey);
     Boolean existsByRoomKey(String roomKey);
+    Boolean existsByIpAddress(String ipAddress);
     //Optional object is more safe. Throwing exceptions and more.
 }

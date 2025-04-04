@@ -30,6 +30,12 @@ public class UserServiceImpl implements IUserService {
             throw new DuplicateRequestException(userDto.getUserKey() + " is already in use");
         }
             UserEntity userEntity = UserMapper.toEntity(userDto);
+        if (userEntity.getIpAddress() == null){
+            throw new NullPointerException("ipAddress is null");
+        }//business layer security
+        if(userEntity.getUserKey() == null){
+            throw new NullPointerException("userKey is null");
+        }
             userRepository.save(userEntity);
             return userDto;
     }
@@ -72,8 +78,16 @@ public class UserServiceImpl implements IUserService {
         return UserMapper.toDto(findeduser);
     }
     @Override
-    public UserDto getUserByIpAddress(String ipAddress){
-        return  UserMapper.toDto(userRepository.findByIpAddress(ipAddress).orElseThrow(() -> new UserNotFoundException(ipAddress)));
+    public List<UserDto> getUsersByIpAddress(String ipAddress){
+        List<UserDto> userDtoList = new ArrayList<>();
+        if(!userRepository.existsByIpAddress(ipAddress)){
+            throw new UserNotFoundException(ipAddress);
+        }
+        List<UserEntity> userEntityList = userRepository.findByIpAddress(ipAddress).orElseThrow(() -> new UserNotFoundException(ipAddress));
+        for(UserEntity userEntity : userEntityList){
+            userDtoList.add(UserMapper.toDto(userEntity));
+        }
+        return userDtoList;
     }
     @Override
     public List<UserDto> getUserByRoomKey(String roomKey){

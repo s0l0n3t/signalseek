@@ -1,9 +1,7 @@
 package com.furkantokgoz.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 
 @Data
 @NoArgsConstructor
@@ -11,7 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserDto {
     private int id;
+    @NonNull
     private String userKey;
+    @NonNull
     private String ipAddress; //Max 15 char
     private Double latitude; // 10,8
     private Double longitude; // 11,8

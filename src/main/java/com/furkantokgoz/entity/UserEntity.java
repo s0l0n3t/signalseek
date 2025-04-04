@@ -21,14 +21,14 @@ public class UserEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false, updatable = false)
     private long id;
-    @Column(name = "userkey",length = 50)
+    @Column(name = "userkey",length = 50,nullable = false)
     private String userKey;
-    @Column(name = "ipaddress",length = 15)
+    @Column(name = "ipaddress",length = 15,nullable = false)
     private String ipAddress;
     @Column(name = "latitude")
     private Double latitude;
     @Column(name = "longitude")
     private Double longitude;
-    @Column(name = "roomkey",nullable = true)
+    @Column(name = "roomkey",nullable = false)
     private String roomKey;
 }
