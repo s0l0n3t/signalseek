@@ -1,7 +1,10 @@
 package com.furkantokgoz.mapper;
 
 import com.furkantokgoz.dto.UserDto;
+import com.furkantokgoz.entity.RoomEntity;
 import com.furkantokgoz.entity.UserEntity;
+import com.furkantokgoz.exception.UserNotFoundException;
+import com.furkantokgoz.repository.RoomRepository;
 
 public class UserMapper {
     public static UserDto toDto(UserEntity userEntity) {
@@ -11,19 +14,25 @@ public class UserMapper {
                 .ipAddress(userEntity.getIpAddress())
                 .latitude(userEntity.getLatitude())
                 .longitude(userEntity.getLongitude())
-                .roomKey(userEntity.getRoomKey())
+                .roomKey(userEntity.getRoom().getRoomKey())
                 .build();
 
     }
-    public static UserEntity toEntity(UserDto userDto) {
-        return UserEntity.builder()
+    public static UserEntity toEntity(UserDto userDto, RoomRepository roomRepository) {
+        UserEntity userEntity = UserEntity.builder()
                 .id(userDto.getId())
                 .userKey(userDto.getUserKey())
                 .ipAddress(userDto.getIpAddress())
                 .latitude(userDto.getLatitude())
                 .longitude(userDto.getLongitude())
-                .roomKey(userDto.getRoomKey())
                 .build();
+        if(userDto.getRoomKey() != null) {
+            RoomEntity roomEntity = roomRepository.findByRoomKey(userDto.getRoomKey())
+                    .orElseThrow(() -> new UserNotFoundException(userDto.getRoomKey()));
+            userEntity.setRoom(roomEntity);
+            //RoomNotFound Exception
+        }
+        return userEntity;
     }
 }
 

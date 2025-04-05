@@ -29,6 +29,8 @@ public class UserEntity implements Serializable {
     private Double latitude;
     @Column(name = "longitude")
     private Double longitude;
-    @Column(name = "roomkey",nullable = false)
-    private String roomKey;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "room_id")
+    private RoomEntity room;
 }

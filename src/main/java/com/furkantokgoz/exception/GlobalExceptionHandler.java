@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -53,4 +52,13 @@ public class GlobalExceptionHandler {
         logger.error(exception.getMessage() + " duplicate request");
         return new ResponseEntity<>(errorResponse,HttpStatus.CONFLICT);
     }
-}
+    @ExceptionHandler(RoomNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleRoomNotFoundException(RoomNotFoundException exception) {
+        ErrorResponse errorResponse = new ErrorResponse(
+                exception.getMessage(),
+                HttpStatus.NOT_FOUND.value()
+        );
+        logger.error(exception.getMessage() + " not found");
+        return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
+    }
+}//translate duplicate to userisalreadyexists and roomalreadyexists

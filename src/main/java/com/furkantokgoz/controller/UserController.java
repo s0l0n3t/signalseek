@@ -57,7 +57,7 @@ public class UserController {
     public ResponseEntity<List<UserDto>> findUsersByRoomkey(@RequestParam String roomKey) {
         logger.info("User found: " + roomKey);
         return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUserByRoomKey(roomKey));
-    }//list
+    }//list, working but internal error
     @GetMapping(value = "/find",params = "ipAddress")
     public ResponseEntity<List<UserDto>> findUserByIpAddress(@RequestParam String ipAddress) {
         logger.info("User found: " + ipAddress);

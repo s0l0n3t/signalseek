@@ -4,6 +4,7 @@ import com.furkantokgoz.dto.UserDto;
 import com.furkantokgoz.entity.UserEntity;
 import com.furkantokgoz.exception.UserNotFoundException;
 import com.furkantokgoz.mapper.UserMapper;
+import com.furkantokgoz.repository.RoomRepository;
 import com.furkantokgoz.repository.UserRepository;
 import com.sun.jdi.request.DuplicateRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,26 +16,34 @@ import java.util.*;
 @Service
 public class UserServiceImpl implements IUserService {
 
+    private RoomRepository roomRepository;
     private UserRepository userRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, RoomRepository roomRepository) {
         this.userRepository = userRepository;
+        this.roomRepository = roomRepository;
     }
     @Override
     public UserDto createUser(UserDto userDto){
-        userDto.setUserKey(userDto.getUserKey().toLowerCase(Locale.ENGLISH));
-        userDto.setRoomKey(userDto.getRoomKey().toLowerCase(Locale.ENGLISH));
         if(userRepository.existsByUserKey(userDto.getUserKey())){
 //Conflict response error.
             throw new DuplicateRequestException(userDto.getUserKey() + " is already in use");
         }
-            UserEntity userEntity = UserMapper.toEntity(userDto);
+        if(userDto.getRoomKey() == null){
+            throw new NullPointerException("roomKey is null");
+        }
+        userDto.setUserKey(userDto.getUserKey().toLowerCase(Locale.ENGLISH));
+        userDto.setRoomKey(userDto.getRoomKey().toLowerCase(Locale.ENGLISH));
+        UserEntity userEntity = UserMapper.toEntity(userDto,roomRepository);
         if (userEntity.getIpAddress() == null){
             throw new NullPointerException("ipAddress is null");
         }//business layer security
         if(userEntity.getUserKey() == null){
             throw new NullPointerException("userKey is null");
+        }
+        if(userEntity.getRoom().getRoomKey() == null){
+            throw new NullPointerException("roomKey is null");
         }
             userRepository.save(userEntity);
             return userDto;
@@ -58,7 +67,7 @@ public class UserServiceImpl implements IUserService {
     }
     @Override
     public UserDto updateUser(Long id, UserDto userDto){
-        UserEntity userEntity = UserMapper.toEntity(userDto);
+        UserEntity userEntity = UserMapper.toEntity(userDto,roomRepository);
 //            UserEntity newUserEntity = userRepository.findById(id)
 //                            .orElseGet(() -> userRepository.save(userEntity));
         // if there not exist, it will create. But i don't want to create.
@@ -92,14 +101,17 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<UserDto> getUserByRoomKey(String roomKey){
         List<UserDto> userDtoList = new ArrayList<>();
-        if(!userRepository.existsByRoomKey(roomKey)){
+        if(!roomRepository.existsByRoomKey(roomKey)){
             throw new UserNotFoundException(roomKey);
         }
-        List<UserEntity> userEntities = userRepository.findByRoomKey(roomKey).orElseThrow(() -> new UserNotFoundException(roomKey));
+        List<UserEntity> userEntities = roomRepository.findUsersByRoomKey(roomKey).orElseThrow(() -> new UserNotFoundException(roomKey));
+        if(userEntities.isEmpty()){
+           throw new UserNotFoundException(roomKey + " no user");
+        }
         for(UserEntity userEntity : userEntities){
             userDtoList.add(UserMapper.toDto(userEntity));
         }
         return userDtoList;
-    }
+    }//Internal error
 
 }
