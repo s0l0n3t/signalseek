@@ -33,8 +33,8 @@ public class UserController {
     }
     @GetMapping("/all")
     public ResponseEntity<List<UserDto>> findAllUsers() {
-        List<UserDto> userDtoList = userService.getAllUsers();
-        return ResponseEntity.status(HttpStatus.OK).body(userDtoList);
+        logger.info("findAllUsers called");
+        return ResponseEntity.status(HttpStatus.OK).body(userService.getAllUsers());
     }
 
     @PutMapping("/update")
@@ -57,7 +57,7 @@ public class UserController {
     public ResponseEntity<List<UserDto>> findUsersByRoomkey(@RequestParam String roomKey) {
         logger.info("User found: " + roomKey);
         return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUserByRoomKey(roomKey));
-    }//list, working but internal error
+    }//list, users by room
     @GetMapping(value = "/find",params = "ipAddress")
     public ResponseEntity<List<UserDto>> findUserByIpAddress(@RequestParam String ipAddress) {
         logger.info("User found: " + ipAddress);

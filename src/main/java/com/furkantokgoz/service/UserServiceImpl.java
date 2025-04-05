@@ -104,7 +104,7 @@ public class UserServiceImpl implements IUserService {
         if(!roomRepository.existsByRoomKey(roomKey)){
             throw new UserNotFoundException(roomKey);
         }
-        List<UserEntity> userEntities = roomRepository.findUsersByRoomKey(roomKey).orElseThrow(() -> new UserNotFoundException(roomKey));
+        List<UserEntity> userEntities = userRepository.findByRoom_RoomKey(roomKey).orElseThrow(() -> new UserNotFoundException(roomKey));
         if(userEntities.isEmpty()){
            throw new UserNotFoundException(roomKey + " no user");
         }

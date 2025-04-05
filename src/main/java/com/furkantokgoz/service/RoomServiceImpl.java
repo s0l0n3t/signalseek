@@ -5,16 +5,21 @@ import com.furkantokgoz.entity.RoomEntity;
 import com.furkantokgoz.exception.RoomNotFoundException;
 import com.furkantokgoz.mapper.RoomMapper;
 import com.furkantokgoz.repository.RoomRepository;
+import com.furkantokgoz.repository.UserRepository;
 import com.sun.jdi.request.DuplicateRequestException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 @Service
-public class RoomService implements IRoomService {
+public class RoomServiceImpl implements IRoomService {
+    private final UserRepository userRepository;
     RoomRepository roomRepository;
-    public RoomService(RoomRepository roomRepository) {
+    public RoomServiceImpl(RoomRepository roomRepository, UserRepository userRepository) {
         this.roomRepository = roomRepository;
+        this.userRepository = userRepository;
     }
     @Override
     public RoomDto createRoom(RoomDto roomDto) {
@@ -27,7 +32,7 @@ public class RoomService implements IRoomService {
         roomDto.setRoomKey(roomDto.getRoomKey().toLowerCase(Locale.ENGLISH));
         RoomEntity roomEntity = RoomMapper.toEntity(roomDto);
         roomRepository.save(roomEntity);
-        return RoomMapper.toDto(roomEntity);
+        return RoomMapper.toDto(roomEntity,userRepository);
     }
     @Override
     public RoomDto deleteRoom(String roomKey) {
@@ -36,6 +41,22 @@ public class RoomService implements IRoomService {
         }
         RoomEntity findedRoom = roomRepository.findByRoomKey(roomKey).orElseThrow(() -> new RoomNotFoundException(roomKey));
         roomRepository.deleteById(findedRoom.getId());
-        return RoomMapper.toDto(findedRoom);
+        return RoomMapper.toDto(findedRoom,userRepository);
+    }
+    @Override
+    public List<RoomDto> findAllRooms() {
+        if(roomRepository.findAll().isEmpty()) {
+            throw new RoomNotFoundException("No room data");
+        }
+        List<RoomEntity> roomEntityList = roomRepository.findAll();
+        List<RoomDto> roomDtoList = new ArrayList<>();
+        for(RoomEntity roomEntity : roomEntityList) {
+            roomDtoList.add(RoomMapper.toDto(roomEntity,userRepository));
+        }
+        return roomDtoList;
+    }
+    @Override
+    public RoomDto findRoomByRoomKey(String roomKey) {
+        return RoomMapper.toDto(roomRepository.findByRoomKey(roomKey).orElseThrow(() -> new RoomNotFoundException(roomKey)),userRepository);
     }
 }
