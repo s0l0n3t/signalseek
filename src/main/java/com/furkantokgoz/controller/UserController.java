@@ -1,6 +1,8 @@
 package com.furkantokgoz.controller;
 
 import com.furkantokgoz.dto.UserDto;
+import com.furkantokgoz.mapper.UserMapper;
+import com.furkantokgoz.repository.RoomRepository;
 import com.furkantokgoz.service.UserServiceImpl;
 import org.apache.catalina.User;
 import org.slf4j.Logger;
@@ -21,6 +23,8 @@ public class UserController {
     private final static Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     UserServiceImpl userService;
+    @Autowired
+    private RoomRepository roomRepository;
 
     @GetMapping("/status")
     public ResponseEntity<HttpStatus> controllerTest() {
@@ -39,9 +43,9 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto,@RequestParam Long id) {
+    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto,@RequestParam String userKey) {
         logger.info("User updated: " + userDto);
-        return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(id, userDto));
+        return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(UserMapper.toEntity(userService.getUserByUserKey(userKey),roomRepository).getId(), userDto));
     }
     //find user
     @GetMapping(value = "/find", params = "id")
