@@ -18,4 +18,5 @@ public interface IUserService {
     public UserDto deleteUser(String userKey);
     public List<UserDto> getUsersByIpAddress(String ipAddress);
     public List<UserDto> getUserByRoomKey(String roomKey) throws Throwable;
+    public UserDto moveUser(String userKey, Double latitude, Double longitude);
 }

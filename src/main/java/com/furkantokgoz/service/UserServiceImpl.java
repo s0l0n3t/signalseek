@@ -113,5 +113,12 @@ public class UserServiceImpl implements IUserService {
         }
         return userDtoList;
     }//Internal error
-
+    @Override
+    public UserDto moveUser(String userKey, Double latitude, Double longitude){
+        UserEntity userEntity = userRepository.findByUserKey(userKey).orElseThrow(() -> new UserNotFoundException(userKey));
+        userEntity.setLatitude(latitude);
+        userEntity.setLongitude(longitude);
+        userRepository.save(userEntity);
+        return UserMapper.toDto(userEntity);
+    }
 }

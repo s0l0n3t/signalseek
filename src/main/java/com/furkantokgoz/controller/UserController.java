@@ -2,6 +2,7 @@ package com.furkantokgoz.controller;
 
 import com.furkantokgoz.dto.UserDto;
 import com.furkantokgoz.service.UserServiceImpl;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,10 @@ public class UserController {
         logger.info("User deleted: " + userKey);
         return ResponseEntity.status(HttpStatus.OK).body(userService.deleteUser(userKey));
     }
-
+    @PostMapping(value = "/move")
+    public ResponseEntity<UserDto> moveUser(@RequestParam(name = "userKey") String userKey, @RequestParam(name = "latitude") Double latitude,@RequestParam(name = "longitude") Double longitude) {
+        logger.info("User "+userKey+" moved into "+latitude+","+longitude);
+        return ResponseEntity.status(HttpStatus.OK).body(userService.moveUser(userKey,latitude,longitude));
+    }
 
 }
