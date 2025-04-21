@@ -2,7 +2,6 @@ package com.furkantokgoz.exception;
 
 
 public class RoomNotFoundException extends RuntimeException {
-
     //alternative exception
     public RoomNotFoundException() {
         super("Room not found");

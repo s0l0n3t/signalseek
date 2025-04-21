@@ -39,6 +39,7 @@ public class RoomController {
     }
     @GetMapping(value = "/find", params = "roomKey")
     public ResponseEntity<RoomDto> findRoomByRoomKey(@RequestParam String roomKey) {
+        logger.info(roomKey+" room found");
         return ResponseEntity.status(HttpStatus.OK).body(roomService.findRoomByRoomKey(roomKey));
     }//find room information
 }

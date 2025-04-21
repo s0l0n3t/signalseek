@@ -1,5 +1,6 @@
 package com.furkantokgoz.service;
 
+import com.furkantokgoz.config.ClientAddressResolver;
 import com.furkantokgoz.dto.UserDto;
 import com.furkantokgoz.entity.UserEntity;
 import com.furkantokgoz.exception.UserNotFoundException;
@@ -16,13 +17,15 @@ import java.util.*;
 @Service
 public class UserServiceImpl implements IUserService {
 
+    private final ClientAddressResolver clientAddressResolver;
     private RoomRepository roomRepository;
     private UserRepository userRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, RoomRepository roomRepository) {
+    public UserServiceImpl(UserRepository userRepository, RoomRepository roomRepository, ClientAddressResolver clientAddressResolver) {
         this.userRepository = userRepository;
         this.roomRepository = roomRepository;
+        this.clientAddressResolver = clientAddressResolver;
     }
     @Override
     public UserDto createUser(UserDto userDto){
@@ -30,11 +33,12 @@ public class UserServiceImpl implements IUserService {
 //Conflict response error.
             throw new DuplicateRequestException(userDto.getUserKey() + " is already in use");
         }
-        if(userDto.getRoomKey() == null){
+        if(userDto.getRoomKey() == null || userDto.getRoomKey().isBlank()){ //isblank includes " " but isEmpty is not.
             throw new NullPointerException("roomKey is null");
         }
         userDto.setUserKey(userDto.getUserKey().toLowerCase(Locale.ENGLISH));
         userDto.setRoomKey(userDto.getRoomKey().toLowerCase(Locale.ENGLISH));
+        userDto.setIpAddress(clientAddressResolver.Resolve());
         UserEntity userEntity = UserMapper.toEntity(userDto,roomRepository);
         if (userEntity.getIpAddress() == null){
             throw new NullPointerException("ipAddress is null");

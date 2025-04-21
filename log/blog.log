@@ -1,21 +1,21 @@
-2025-04-16T17:34:05.174+03:00  INFO 14084 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 14084 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
-2025-04-16T17:34:05.185+03:00  INFO 14084 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
-2025-04-16T17:34:06.240+03:00  INFO 14084 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-16T17:34:06.305+03:00  INFO 14084 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 2 JPA repository interfaces.
-2025-04-16T17:34:07.017+03:00  INFO 14084 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-04-16T17:34:07.038+03:00  INFO 14084 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-04-16T17:34:07.038+03:00  INFO 14084 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-16T17:34:07.106+03:00  INFO 14084 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-04-16T17:34:07.107+03:00  INFO 14084 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1845 ms
-2025-04-16T17:34:07.277+03:00  INFO 14084 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-04-16T17:34:07.628+03:00  INFO 14084 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2025-04-16T17:34:07.631+03:00  INFO 14084 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-04-16T17:34:07.695+03:00  INFO 14084 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-16T17:34:07.783+03:00  INFO 14084 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
-2025-04-16T17:34:07.840+03:00  INFO 14084 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-04-16T17:34:08.681+03:00  INFO 14084 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-16T17:34:08.893+03:00  WARN 14084 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-16T17:34:08.945+03:00  INFO 14084 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-04-21T15:08:34.267+03:00  INFO 1696 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 1696 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-04-21T15:08:34.279+03:00  INFO 1696 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-04-21T15:08:35.898+03:00  INFO 1696 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-21T15:08:36.015+03:00  INFO 1696 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102 ms. Found 3 JPA repository interfaces.
+2025-04-21T15:08:37.170+03:00  INFO 1696 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-04-21T15:08:37.204+03:00  INFO 1696 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-04-21T15:08:37.205+03:00  INFO 1696 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-21T15:08:37.289+03:00  INFO 1696 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-04-21T15:08:37.289+03:00  INFO 1696 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2874 ms
+2025-04-21T15:08:37.481+03:00  INFO 1696 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-21T15:08:37.885+03:00  INFO 1696 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-04-21T15:08:37.888+03:00  INFO 1696 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-21T15:08:37.990+03:00  INFO 1696 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-21T15:08:38.146+03:00  INFO 1696 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-21T15:08:38.228+03:00  INFO 1696 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-04-21T15:08:38.810+03:00  INFO 1696 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-21T15:08:38.935+03:00  WARN 1696 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-21T15:08:38.973+03:00  INFO 1696 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -23,28 +23,135 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-04-16T17:34:10.199+03:00  INFO 14084 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-16T17:34:10.266+03:00  INFO 14084 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-16T17:34:10.783+03:00  WARN 14084 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-16T17:34:11.599+03:00  INFO 14084 --- [signalseek] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2025-04-16T17:34:11.726+03:00  INFO 14084 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
-2025-04-16T17:34:11.805+03:00  INFO 14084 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-04-16T17:34:11.818+03:00  INFO 14084 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 7.264 seconds (process running for 10.635)
-2025-04-16T17:34:24.295+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-16T17:34:24.295+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-04-16T17:34:24.297+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-04-16T17:34:24.651+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-1] c.f.controller.RoomController            : room123 room created
-2025-04-16T17:34:30.413+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-7] c.f.controller.UserController            : User created: UserDto(id=0, userKey=admin156, ipAddress=128.0.0.1, latitude=12.3, longitude=10.5123, roomKey=room123)
-2025-04-16T17:34:40.827+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-4] c.f.controller.UserController            : User admin156 moved into 3.3,4.4
-2025-04-16T17:34:45.663+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-6] c.f.controller.RoomController            : getAllRooms called
-2025-04-16T17:35:03.888+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-8] c.f.controller.UserController            : User found: 128.0.0.1
-2025-04-16T17:36:32.406+03:00  WARN 14084 --- [signalseek] [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2025-04-16T17:37:56.905+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-1] c.f.controller.UserController            : User updated: UserDto(id=0, userKey=admin156, ipAddress=128.0.0.1, latitude=13.3, longitude=4.4, roomKey=room123)
-2025-04-16T17:38:06.266+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-7] c.f.controller.RoomController            : getAllRooms called
-2025-04-16T17:38:07.861+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-4] c.f.controller.RoomController            : getAllRooms called
-2025-04-16T17:38:14.071+03:00  INFO 14084 --- [signalseek] [http-nio-8080-exec-6] c.f.controller.UserController            : User found: 128.0.0.1
-2025-04-16T17:38:54.007+03:00  INFO 14084 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-04-16T17:38:54.030+03:00  INFO 14084 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-04-16T17:38:54.039+03:00  INFO 14084 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-04-16T17:38:54.076+03:00  INFO 14084 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-04-16T17:38:54.084+03:00  INFO 14084 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-04-21T15:08:40.806+03:00  INFO 1696 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-21T15:08:40.893+03:00  INFO 1696 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-21T15:08:41.842+03:00  WARN 1696 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-21T15:08:43.029+03:00  INFO 1696 --- [signalseek] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-04-21T15:08:43.190+03:00  INFO 1696 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-04-21T15:08:43.264+03:00  INFO 1696 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-04-21T15:08:43.275+03:00  INFO 1696 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 9.917 seconds (process running for 11.245)
+2025-04-21T15:09:07.803+03:00  INFO 1696 --- [signalseek] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-21T15:09:07.804+03:00  INFO 1696 --- [signalseek] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-04-21T15:09:07.807+03:00  INFO 1696 --- [signalseek] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-04-21T15:09:08.673+03:00  INFO 1696 --- [signalseek] [http-nio-8080-exec-2] c.f.controller.RoomController            : room123 room created
+2025-04-21T15:09:21.585+03:00  INFO 1696 --- [signalseek] [http-nio-8080-exec-4] c.f.controller.UserController            : User created: UserDto(id=0, userKey=admin135, ipAddress=0:0:0:0:0:0:0:1, latitude=12.3, longitude=10.5123, roomKey=room123)
+2025-04-21T15:15:23.402+03:00  INFO 1696 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-21T15:15:23.452+03:00  INFO 1696 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-04-21T15:15:23.514+03:00  INFO 1696 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-21T15:15:23.646+03:00  INFO 1696 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-04-21T15:15:23.686+03:00  INFO 1696 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-04-21T15:20:42.119+03:00  INFO 17224 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 17224 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-04-21T15:20:42.120+03:00  INFO 17224 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-04-21T15:20:42.939+03:00  INFO 17224 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-21T15:20:42.994+03:00  INFO 17224 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 3 JPA repository interfaces.
+2025-04-21T15:20:43.504+03:00  INFO 17224 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-04-21T15:20:43.519+03:00  INFO 17224 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-04-21T15:20:43.519+03:00  INFO 17224 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-21T15:20:43.564+03:00  INFO 17224 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-04-21T15:20:43.565+03:00  INFO 17224 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1395 ms
+2025-04-21T15:20:43.660+03:00  INFO 17224 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-21T15:20:43.854+03:00  INFO 17224 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-04-21T15:20:43.855+03:00  INFO 17224 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-21T15:20:43.901+03:00  INFO 17224 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-21T15:20:43.959+03:00  INFO 17224 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-21T15:20:43.992+03:00  INFO 17224 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-04-21T15:20:44.250+03:00  INFO 17224 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-21T15:20:44.294+03:00  WARN 17224 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-21T15:20:44.309+03:00  INFO 17224 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-21T15:20:45.103+03:00  INFO 17224 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-21T15:20:45.153+03:00  INFO 17224 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-21T15:20:45.693+03:00  WARN 17224 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-21T15:20:46.328+03:00  INFO 17224 --- [signalseek] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-04-21T15:20:46.406+03:00  INFO 17224 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-04-21T15:20:46.446+03:00  INFO 17224 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-04-21T15:20:46.452+03:00  INFO 17224 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 4.738 seconds (process running for 6.527)
+2025-04-21T15:20:58.381+03:00  INFO 17224 --- [signalseek] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-21T15:20:58.381+03:00  INFO 17224 --- [signalseek] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-04-21T15:20:58.382+03:00  INFO 17224 --- [signalseek] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-04-21T15:20:58.799+03:00  INFO 17224 --- [signalseek] [http-nio-8080-exec-4] c.f.controller.RoomController            : room123 room created
+2025-04-21T15:21:02.634+03:00  INFO 17224 --- [signalseek] [http-nio-8080-exec-2] c.f.controller.UserController            : User created: UserDto(id=0, userKey=admin135, ipAddress=0:0:0:0:0:0:0:1, latitude=12.3, longitude=10.5123, roomKey=room123)
+2025-04-21T15:21:12.906+03:00 ERROR 17224 --- [signalseek] [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.security.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+	at io.jsonwebtoken.impl.DefaultJwtParser.verifySignature(DefaultJwtParser.java:340) ~[jjwt-impl-0.12.6.jar:0.12.6]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:579) ~[jjwt-impl-0.12.6.jar:0.12.6]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:364) ~[jjwt-impl-0.12.6.jar:0.12.6]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94) ~[jjwt-impl-0.12.6.jar:0.12.6]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36) ~[jjwt-impl-0.12.6.jar:0.12.6]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29) ~[jjwt-impl-0.12.6.jar:0.12.6]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:830) ~[jjwt-impl-0.12.6.jar:0.12.6]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:806) ~[jjwt-impl-0.12.6.jar:0.12.6]
+	at com.furkantokgoz.security.jwt.JwtUtil.extractAllClaims(JwtUtil.java:43) ~[classes/:na]
+	at com.furkantokgoz.security.jwt.JwtUtil.extractClaim(JwtUtil.java:35) ~[classes/:na]
+	at com.furkantokgoz.security.jwt.JwtUtil.extractUsername(JwtUtil.java:26) ~[classes/:na]
+	at com.furkantokgoz.security.jwt.JwtFilter.doFilterInternal(JwtFilter.java:41) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.4.4.jar:6.4.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243) ~[spring-webmvc-6.2.5.jar:6.2.5]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238) ~[spring-security-config-6.4.4.jar:6.4.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.5.jar:6.2.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-04-21T15:21:49.264+03:00  INFO 17224 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-21T15:21:49.270+03:00  INFO 17224 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-04-21T15:21:49.275+03:00  INFO 17224 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-21T15:21:49.281+03:00  INFO 17224 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-04-21T15:21:49.284+03:00  INFO 17224 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

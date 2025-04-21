@@ -4,7 +4,7 @@ import com.furkantokgoz.dto.UserDto;
 import com.furkantokgoz.mapper.UserMapper;
 import com.furkantokgoz.repository.RoomRepository;
 import com.furkantokgoz.service.UserServiceImpl;
-import org.apache.catalina.User;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
