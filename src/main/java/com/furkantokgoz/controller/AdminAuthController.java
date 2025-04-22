@@ -8,7 +8,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
@@ -24,11 +29,13 @@ public class AdminAuthController {
     private AdminUserServiceImpl adminUserService;
 
     @PostMapping("/login")
-    public ResponseEntity createToken(@RequestBody AdminUserDto adminUserDto) throws Exception {
+    public ResponseEntity adminLogin(@RequestBody AdminUserDto adminUserDto) throws Exception {
         try{
 //            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
             AdminUserDto control = adminUserService.getAdminuserByUsernameAndPassword(adminUserDto.getUsername(), adminUserDto.getPassword());
-        return ResponseEntity.status(HttpStatus.OK).body(jwtUtil.generateToken(control));
+
+            control.setGetAuthorities(List.of(new SimpleGrantedAuthority("ROLE_ADMIN")));
+        return ResponseEntity.status(HttpStatus.OK).body(jwtUtil.generateToken(control.getUsername(),control.getGetAuthorities()));
         //authmanager araştır.
     }catch (BadCredentialsException e){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());

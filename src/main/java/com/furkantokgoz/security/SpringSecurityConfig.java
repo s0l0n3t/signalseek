@@ -1,20 +1,13 @@
 package com.furkantokgoz.security;
 
 import com.furkantokgoz.security.jwt.JwtFilter;
-import com.furkantokgoz.service.AdminUserServiceImpl;
-import io.jsonwebtoken.security.Password;
-import org.apache.catalina.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.BeanIds;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -35,32 +28,37 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/user/create",
-                                "/user/move",
                                 "/user/status",
                                 "/room/create",
-                                "/room/find",
                                 "/admin/login",
                                 "/admin/register",
                                 "/h2-console",
                                 "/h2-console/**"
                         ).permitAll()
                         .requestMatchers(
-                                "/user/all",
                                 "/user/find",
-                                "/room/all",
-                                "/room/delete",
-                                "/user/deletebyuserkey").authenticated()
+                                "/room/find",
+                                "/room/delete"
+                        ).hasAnyRole("ADMIN", "ROOM")
+                        .requestMatchers(
+                                "/user/move",
+                                "/user/update",
+                                "/user/status",
+                                "/user/deletebyuserkey"
+                        ).hasAnyRole("ADMIN", "USER")
+                        .requestMatchers(
+                                "/user/all",
+                                "/room/all").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
                 http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
-
     }
 
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig, AdminUserServiceImpl adminUserService) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
     }
 }

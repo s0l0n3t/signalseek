@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
 
+import java.util.Collection;
 import java.util.List;
 
 @Builder
@@ -16,4 +18,5 @@ public class RoomDto {
     private String roomKey;
     private List<String> userKeys;
     private Integer userCount;
+    private Collection<? extends GrantedAuthority> authorities;
 }

@@ -1,14 +1,21 @@
 package com.furkantokgoz.security.jwt;
 
 import com.furkantokgoz.dto.AdminUserDto;
+import com.furkantokgoz.dto.RoomDto;
+import com.furkantokgoz.dto.UserDto;
+import com.furkantokgoz.exception.TokenNotFoundException;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,11 +26,18 @@ public class JwtUtil implements Serializable {
 
     // hash işlemi yaparken kullanılacak key
     private SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS512);
-    private final int expireIn = 30 * 60 * 1000;
+    private final int expireIn = 24*60 * 60 * 1000; //1 day expires
 
     // verilen token a ait kullanıcı adını döndürür.
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
+    }
+    public Collection<? extends GrantedAuthority> extractAuthorities(String token) {
+        Claims claims = extractAllClaims(token);
+        var roles = (Collection<?>) claims.get("roles");
+        return roles.stream()
+                .map(role -> (SimpleGrantedAuthority) new SimpleGrantedAuthority(role.toString()))
+                .toList();
     }
 
     // verilen token a ait token bitiş süresini verir.
@@ -37,29 +51,29 @@ public class JwtUtil implements Serializable {
     }
 
     // verilen token a ait claims bilgisini alır.
-    private Claims extractAllClaims(String token) {
+    public Claims extractAllClaims(String token) {
         return Jwts.parser().verifyWith(SECRET_KEY)
                 .build()
                 .parseClaimsJws(token).getPayload();
     }
-
     // token ın geçerlilik süre doldu mu?
     private Boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
 
     // userDetails objesini alır. createToken metoduna gönderir.
-    public JwtResponse generateToken(AdminUserDto adminUserDto) {
+    public JwtResponse generateToken(String hash, Collection<? extends GrantedAuthority> authorities) {
         Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", authorities.stream().map(GrantedAuthority::getAuthority).toList());
         return JwtResponse.builder()
-                .token(createToken(claims,adminUserDto.getUsername()))
+                .token(createToken(claims,hash))
                 .expiresIn(new Date(System.currentTimeMillis() + expireIn)) //GMT +0
                 .build();
     }
 
-    private String createToken(Map<String, Object> claims, String username) {
+    private String createToken(Map<String, Object> claims, String hash) {
         return Jwts.builder().setClaims(claims)
-                .setSubject(username) // ilgili kullanıcı
+                .setSubject(hash) // ilgili kullanıcı
                 .setIssuedAt(new Date(System.currentTimeMillis())) // başlangıç
                 .setExpiration(new Date(System.currentTimeMillis() + expireIn)) // bitiş
                 .signWith(SECRET_KEY,Jwts.SIG.HS256) // kullanılan algoritma ve bu algoritma çalışırken kullanılacak hash key değeri
@@ -67,8 +81,11 @@ public class JwtUtil implements Serializable {
     }
 
     // token hala geçerli mi? kullanıcı adı doğru ise ve token ın geçerlilik süresi devam ediyorsa true döner.
-    public Boolean validateToken(String token, AdminUserDto adminUserDto) {
-        final String username = extractUsername(token);
-        return (username.equals(adminUserDto.getUsername()) && !isTokenExpired(token));
+    public Boolean validateToken(String token) {
+        try{
+            return !isTokenExpired(token);
+        }catch (JwtException e){
+            return false;
+        }
     }
 }

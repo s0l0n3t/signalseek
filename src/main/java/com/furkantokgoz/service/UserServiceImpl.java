@@ -7,7 +7,9 @@ import com.furkantokgoz.exception.UserNotFoundException;
 import com.furkantokgoz.mapper.UserMapper;
 import com.furkantokgoz.repository.RoomRepository;
 import com.furkantokgoz.repository.UserRepository;
+import com.furkantokgoz.security.jwt.JwtResponse;
 import com.sun.jdi.request.DuplicateRequestException;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

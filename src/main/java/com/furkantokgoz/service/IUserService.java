@@ -2,6 +2,7 @@ package com.furkantokgoz.service;
 
 import com.furkantokgoz.dto.UserDto;
 import com.furkantokgoz.entity.UserEntity;
+import com.furkantokgoz.security.jwt.JwtResponse;
 import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
 
