@@ -11,6 +11,8 @@ import com.furkantokgoz.security.jwt.JwtResponse;
 import com.sun.jdi.request.DuplicateRequestException;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
 
@@ -126,5 +128,16 @@ public class UserServiceImpl implements IUserService {
         userEntity.setLongitude(longitude);
         userRepository.save(userEntity);
         return UserMapper.toDto(userEntity);
+    }
+    @Override
+    public Boolean isUserExist(String userKey){
+        return userRepository.existsByUserKey(userKey);
+    }
+    @Override
+    public Boolean isUserAuthorized(String userKey, Authentication authentication){
+        if(authentication.getName().equals(userKey) || authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
+            return true;
+        }
+        return false;
     }
 }

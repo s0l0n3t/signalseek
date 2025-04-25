@@ -1,17 +1,22 @@
 package com.furkantokgoz.service;
 
 import com.furkantokgoz.dto.RoomDto;
+import com.furkantokgoz.dto.UserDto;
 import com.furkantokgoz.entity.RoomEntity;
+import com.furkantokgoz.entity.UserEntity;
 import com.furkantokgoz.exception.RoomNotFoundException;
+import com.furkantokgoz.exception.UserNotFoundException;
 import com.furkantokgoz.mapper.RoomMapper;
+import com.furkantokgoz.mapper.UserMapper;
 import com.furkantokgoz.repository.RoomRepository;
 import com.furkantokgoz.repository.UserRepository;
 import com.sun.jdi.request.DuplicateRequestException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class RoomServiceImpl implements IRoomService {
@@ -59,4 +64,25 @@ public class RoomServiceImpl implements IRoomService {
     public RoomDto findRoomByRoomKey(String roomKey) {
         return RoomMapper.toDto(roomRepository.findByRoomKey(roomKey).orElseThrow(() -> new RoomNotFoundException(roomKey)),userRepository);
     }
+    @Override
+    public Boolean isRoomExist(String roomKey) {
+        return roomRepository.existsByRoomKey(roomKey);
+    }
+    @Override
+    public Boolean isRoomAuthorized(String roomKey, Authentication authentication) {
+            if(authentication.getName().equals(roomKey)) {
+                return true;
+            }
+        return false;//add admin
+    }
+    @Override
+    public Boolean isRoomAuthorizedByUserKey(String userKey,String roomKey, Authentication authentication) {
+        if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
+            return true;
+        }
+        return userRepository.findByRoom_RoomKey(roomKey)
+                .orElseThrow(() -> new RoomNotFoundException(roomKey))
+                .stream()
+                .anyMatch(user -> userKey.equals(user.getUserKey()));
+    }//no need to convert to Dto.
 }

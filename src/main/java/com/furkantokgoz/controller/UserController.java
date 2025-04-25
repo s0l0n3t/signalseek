@@ -1,5 +1,6 @@
 package com.furkantokgoz.controller;
 
+import com.furkantokgoz.config.LoggerConfigBean;
 import com.furkantokgoz.dto.UserDto;
 import com.furkantokgoz.entity.UserEntity;
 import com.furkantokgoz.exception.ErrorResponse;
@@ -8,6 +9,8 @@ import com.furkantokgoz.mapper.UserMapper;
 import com.furkantokgoz.repository.RoomRepository;
 import com.furkantokgoz.security.jwt.JwtFilter;
 import com.furkantokgoz.security.jwt.JwtUtil;
+import com.furkantokgoz.service.AdminUserServiceImpl;
+import com.furkantokgoz.service.RoomServiceImpl;
 import com.furkantokgoz.service.UserServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
@@ -38,6 +41,10 @@ public class UserController {
     private JwtUtil jwtUtil;
     @Autowired
     private JwtFilter jwtFilter;
+    @Autowired
+    private RoomServiceImpl roomServiceImpl;
+    @Autowired
+    private AdminUserServiceImpl adminUserServiceImpl;
 
     @GetMapping("/status")
     public ResponseEntity<HttpStatus> controllerTest() {
@@ -48,7 +55,7 @@ public class UserController {
         userService.createUser(userDto);
         logger.info("User created: " + userDto);
         userDto.setAuthorities(List.of(new SimpleGrantedAuthority("ROLE_USER")));
-        return ResponseEntity.status(HttpStatus.CREATED).body(jwtUtil.generateToken(userDto.getUserKey(),userDto.getAuthorities()));//change
+        return ResponseEntity.status(HttpStatus.CREATED).body(jwtUtil.generateToken(userDto.getUserKey(),userDto.getAuthorities()));
     }
     @GetMapping("/all")
     public ResponseEntity<List<UserDto>> findAllUsers() {
@@ -58,7 +65,8 @@ public class UserController {
 
     @PutMapping("/update")
     public ResponseEntity updateUser(@RequestBody UserDto userDto,@RequestParam String userKey) {
-        if(jwtFilter.isUserAuthorized(SecurityContextHolder.getContext().getAuthentication(), userKey)) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(userService.isUserAuthorized(userKey,auth)) {
             logger.info("User updated: " + userDto);
             return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(UserMapper.toEntity(userService.getUserByUserKey(userKey),roomRepository).getId(), userDto));
         }
@@ -66,55 +74,59 @@ public class UserController {
     }
     //find user
     @GetMapping(value = "/find", params = "id")
-    public ResponseEntity<UserDto> findUserById(@RequestParam Long id) {
-        try{
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            String object = auth.getName();
-            UserDto userModel = userService.getUserByUserKey(object);
+    public ResponseEntity findUserById(@RequestParam Long id) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(adminUserServiceImpl.isAdminAuthorized(auth)) {
             logger.info("User found: " + id);
             return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUserById(id));
-
-        }catch (Exception e){
-            throw new TokenNotFoundException(e.getMessage());
         }
-
-    }//unique
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authorized");
+    }
     @GetMapping(value = "/find", params = "userKey")
-    public ResponseEntity<UserDto> findUserByUserKey(@RequestParam String userKey) {
-        logger.info("User found: " + userKey);
-        return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUserByUserKey(userKey));
-    }//unique
+    public ResponseEntity findUserByUserKey(@RequestParam String userKey) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDto userDto = userService.getUserByUserKey(userKey);
+        if(roomServiceImpl.isRoomAuthorizedByUserKey(userKey,authentication.getName(),authentication)){
+            logger.info("User found: " + userKey);
+            return ResponseEntity.status(HttpStatus.FOUND).body(userDto);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authorized");
+    }
     @GetMapping(value = "/find", params = "roomKey")
-    public ResponseEntity<List<UserDto>> findUsersByRoomkey(@RequestParam String roomKey) {
-        logger.info("User found: " + roomKey);
-        return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUserByRoomKey(roomKey));
+    public ResponseEntity findUsersByRoomkey(@RequestParam String roomKey) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(adminUserServiceImpl.isAdminAuthorized(authentication) || authentication.getName().equals(roomKey)){
+            logger.info("User found: " + roomKey);
+            return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUserByRoomKey(roomKey));
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authorized");
     }//list, users by room
     @GetMapping(value = "/find",params = "ipAddress")
-    public ResponseEntity<List<UserDto>> findUserByIpAddress(@RequestParam String ipAddress) {
-        logger.info("User found: " + ipAddress);
-        return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUsersByIpAddress(ipAddress));
+    public ResponseEntity findUserByIpAddress(@RequestParam String ipAddress) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(adminUserServiceImpl.isAdminAuthorized(authentication)){
+            logger.info("User found: " + ipAddress);
+            return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUsersByIpAddress(ipAddress));
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(userService.getUsersByIpAddress("User not authorized"));
     }//list
     @DeleteMapping("/deletebyuserkey")
     public ResponseEntity deleteUser(@RequestParam String userKey) {
-        if(jwtFilter.isUserAuthorized(SecurityContextHolder.getContext().getAuthentication(),userKey)){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(userService.isUserAuthorized(userKey,auth)){
             logger.info("User deleted: " + userKey);
             return ResponseEntity.status(HttpStatus.OK).body(userService.deleteUser(userKey));
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(userKey);
     }
     @PostMapping(value = "/move")
-    public ResponseEntity moveUser(@RequestParam(name = "userKey") String userKey, @RequestParam(name = "latitude") Double latitude,@RequestParam(name = "longitude") Double longitude,HttpServletRequest request) {
+    public ResponseEntity moveUser(@RequestParam(name = "userKey") String userKey, @RequestParam(name = "latitude") Double latitude,@RequestParam(name = "longitude") Double longitude) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(request.getHeader("Authorization"));
-        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName() + SecurityContextHolder.getContext().getAuthentication().getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")));
-        if(auth.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER")) || auth.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
-            System.out.println(auth.getName());
-            if(auth.getName().equals(userKey) || auth.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
-                logger.info("User "+userKey+" moved into "+latitude+","+longitude);
-                return ResponseEntity.status(HttpStatus.OK).body(userService.moveUser(userKey,latitude,longitude));
-
-            }
+        if(userService.isUserAuthorized(userKey,auth)){
+            logger.info("User "+userKey+" moved into "+latitude+","+longitude);
+            return ResponseEntity.status(HttpStatus.OK).body(userService.moveUser(userKey,latitude,longitude));
         }
+        logger.error(LoggerConfigBean.errorLog(userKey,auth));//use same
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(userKey);
     }
 }
