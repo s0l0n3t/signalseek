@@ -1,52 +1,49 @@
 package com.furkantokgoz.controller;
 
+import com.furkantokgoz.config.LoggerConfigBean;
 import com.furkantokgoz.dto.AdminUserDto;
 import com.furkantokgoz.security.jwt.JwtUtil;
 import com.furkantokgoz.service.AdminUserServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collection;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/admin")
 public class AdminAuthController {
-
+    private final static Logger logger = LoggerFactory.getLogger(AdminAuthController.class);
     @Autowired
     private JwtUtil jwtUtil;
-
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
     @Autowired
     private AdminUserServiceImpl adminUserService;
 
     @PostMapping("/login")
-    public ResponseEntity adminLogin(@RequestBody AdminUserDto adminUserDto) throws Exception {
+    public ResponseEntity adminLogin(@RequestBody AdminUserDto adminUserDto) {
         try{
-//            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
             AdminUserDto control = adminUserService.getAdminuserByUsernameAndPassword(adminUserDto.getUsername(), adminUserDto.getPassword());
-
             control.setGetAuthorities(List.of(new SimpleGrantedAuthority("ROLE_ADMIN")));
-        return ResponseEntity.status(HttpStatus.OK).body(jwtUtil.generateToken(control.getUsername(),control.getGetAuthorities()));
-        //authmanager araştır.
+            logger.info(LoggerConfigBean.loginAuthLog(control.getUsername()));
+            return ResponseEntity.status(HttpStatus.OK).body(jwtUtil.generateToken(control.getUsername(),control.getGetAuthorities()));
     }catch (BadCredentialsException e){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+            logger.error(LoggerConfigBean.errorAuthLog(adminUserDto.getUsername()));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
         }//error format düzelt
         catch (Exception e){
+            logger.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
 
     @PostMapping("/register")
-    public ResponseEntity<AdminUserDto> registerUser(@RequestBody AdminUserDto adminUserDto) throws Exception {
+    public ResponseEntity<AdminUserDto> registerUser(@RequestBody AdminUserDto adminUserDto) {
+        logger.info(adminUserDto.getUsername() + " created");
         return ResponseEntity.status(HttpStatus.OK
         ).body(adminUserService.createAdminUser(adminUserDto));
     }

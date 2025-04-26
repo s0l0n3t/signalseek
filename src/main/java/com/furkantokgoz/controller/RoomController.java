@@ -1,5 +1,6 @@
 package com.furkantokgoz.controller;
 
+import com.furkantokgoz.config.LoggerConfigBean;
 import com.furkantokgoz.dto.RoomDto;
 import com.furkantokgoz.security.jwt.JwtUtil;
 import com.furkantokgoz.service.AdminUserServiceImpl;
@@ -38,25 +39,26 @@ public class RoomController {
     }//token output
     @DeleteMapping("/delete")
     public ResponseEntity deleteRoom(@RequestParam String roomKey) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(roomService.isRoomAuthorized(roomKey,authentication)){
-            logger.info(roomKey+" room deleted");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(roomService.isRoomAuthorized(roomKey,auth)){
+            logger.info(roomKey+" room deleted by "+auth.getName());
             return ResponseEntity.status(HttpStatus.OK).body(roomService.deleteRoom(roomKey));
         }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(roomKey);
+        logger.error(LoggerConfigBean.errorRequestLog(roomKey,auth));
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
     @GetMapping(value = "/all")
     public ResponseEntity<List<RoomDto>> getAllRooms() {
-        logger.info("getAllRooms called");
+        logger.info("all room called");
         return ResponseEntity.status(HttpStatus.OK).body(roomService.findAllRooms());
     }//admin authorizing
     @GetMapping(value = "/find", params = "roomKey")
     public ResponseEntity findRoomByRoomKey(@RequestParam String roomKey) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(roomService.isRoomAuthorized(roomKey,authentication) || adminUserServiceImpl.isAdminAuthorized(authentication)){
-            logger.info(roomKey+" room found by ");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(roomService.isRoomAuthorized(roomKey,auth) || adminUserServiceImpl.isAdminAuthorized(auth)){
+            logger.info(LoggerConfigBean.infoFoundLog(roomKey,auth));
             return ResponseEntity.status(HttpStatus.OK).body(roomService.findRoomByRoomKey(roomKey));
         }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(roomKey);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }//find room information
 }

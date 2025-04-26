@@ -5,6 +5,7 @@ import lombok.Builder;
 import java.time.LocalDateTime;
 
 //Exception POJO
+@Builder
 public class ErrorResponse {
     private int status;
     private String message;
