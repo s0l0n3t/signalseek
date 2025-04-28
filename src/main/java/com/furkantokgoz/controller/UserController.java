@@ -1,14 +1,17 @@
 package com.furkantokgoz.controller;
 
 import com.furkantokgoz.config.LoggerConfigBean;
+import com.furkantokgoz.dto.Roles;
 import com.furkantokgoz.dto.UserDto;
 import com.furkantokgoz.mapper.UserMapper;
 import com.furkantokgoz.repository.RoomRepository;
 import com.furkantokgoz.security.jwt.JwtFilter;
 import com.furkantokgoz.security.jwt.JwtUtil;
 import com.furkantokgoz.service.AdminUserServiceImpl;
+import com.furkantokgoz.service.ApplicationLogServiceImpl;
 import com.furkantokgoz.service.RoomServiceImpl;
 import com.furkantokgoz.service.UserServiceImpl;
+import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +43,8 @@ public class UserController {
     private RoomServiceImpl roomServiceImpl;
     @Autowired
     private AdminUserServiceImpl adminUserServiceImpl;
+    @Autowired
+    private ApplicationLogServiceImpl applicationLogServiceImpl;
 
     @GetMapping("/status")
     public ResponseEntity<HttpStatus> controllerTest() {
@@ -48,23 +53,24 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity createUser(@RequestBody UserDto userDto) {
         userService.createUser(userDto);
-        logger.info("User created: " + userDto);
+        logger.info(LoggerConfigBean.userCrated(Roles.ROLE_USER,userDto.getUserKey(),applicationLogServiceImpl,userService.getClass().getSimpleName()));
         userDto.setAuthorities(List.of(new SimpleGrantedAuthority("ROLE_USER")));
         return ResponseEntity.status(HttpStatus.CREATED).body(jwtUtil.generateToken(userDto.getUserKey(),userDto.getAuthorities()));
     }
     @GetMapping("/all")
     public ResponseEntity<List<UserDto>> findAllUsers() {
-        logger.info("all user called");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        logger.info(LoggerConfigBean.userAllCalled(Roles.ROLE_ADMIN,auth.getName(),applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.OK).body(userService.getAllUsers());
     }
     @PutMapping("/update")
     public ResponseEntity updateUser(@RequestBody UserDto userDto,@RequestParam String userKey) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(userService.isUserAuthorized(userKey,auth)) {
-            logger.info("User updated: " + userDto);
+            logger.info(LoggerConfigBean.userUpdated(userDto.getUserKey(),applicationLogServiceImpl,userService.getClass().getSimpleName(),auth));
             return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(UserMapper.toEntity(userService.getUserByUserKey(userKey),roomRepository).getId(), userDto));
         }
-        logger.error(LoggerConfigBean.errorRequestLog(userKey,auth));
+        logger.error(LoggerConfigBean.errorRequestLog(userKey,auth,applicationLogServiceImpl,userService.getClass().getName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
     //find user
@@ -72,10 +78,10 @@ public class UserController {
     public ResponseEntity findUserById(@RequestParam Long id) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(adminUserServiceImpl.isAdminAuthorized(auth)) {
-            logger.info(LoggerConfigBean.infoFoundLog(id.toString(),auth));
+            logger.info(LoggerConfigBean.infoFoundLog(id.toString(),auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
             return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUserById(id));
         }
-        logger.error(LoggerConfigBean.errorRequestLog(id.toString(),auth));
+        logger.error(LoggerConfigBean.errorRequestLog(id.toString(),auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
     @GetMapping(value = "/find", params = "userKey")
@@ -83,50 +89,50 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserDto userDto = userService.getUserByUserKey(userKey);
         if(roomServiceImpl.isRoomAuthorizedByUserKey(userKey,auth.getName(),auth)){
-            logger.info(LoggerConfigBean.infoFoundLog(userKey,auth));
+            logger.info(LoggerConfigBean.infoFoundLog(userKey,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
             return ResponseEntity.status(HttpStatus.FOUND).body(userDto);
         }
-        logger.error(LoggerConfigBean.errorRequestLog(userKey,auth));
+        logger.error(LoggerConfigBean.errorRequestLog(userKey,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
     @GetMapping(value = "/find", params = "roomKey")
     public ResponseEntity findUsersByRoomkey(@RequestParam String roomKey) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(adminUserServiceImpl.isAdminAuthorized(auth) || auth.getName().equals(roomKey)){
-            logger.info(LoggerConfigBean.infoFoundLog(roomKey,auth));
+            logger.info(LoggerConfigBean.infoFoundLog(roomKey,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
             return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUserByRoomKey(roomKey));
         }
-        logger.error(LoggerConfigBean.errorRequestLog(roomKey,auth));
+        logger.error(LoggerConfigBean.errorRequestLog(roomKey,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }//list, users by room
     @GetMapping(value = "/find",params = "ipAddress")
     public ResponseEntity findUserByIpAddress(@RequestParam String ipAddress) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(adminUserServiceImpl.isAdminAuthorized(auth)){
-            logger.info(LoggerConfigBean.infoFoundLog(ipAddress,auth));
+            logger.info(LoggerConfigBean.infoFoundLog(ipAddress,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
             return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUsersByIpAddress(ipAddress));
         }
-        logger.error(LoggerConfigBean.errorRequestLog(ipAddress,auth));
+        logger.error(LoggerConfigBean.errorRequestLog(ipAddress,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }//list
     @DeleteMapping("/deletebyuserkey")
     public ResponseEntity deleteUser(@RequestParam String userKey) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(userService.isUserAuthorized(userKey,auth)){
-            logger.info("User deleted: " + userKey);
+            logger.info(LoggerConfigBean.userDeleted(Roles.ROLE_USER,auth.getName(),applicationLogServiceImpl,userService.getClass().getSimpleName()));
             return ResponseEntity.status(HttpStatus.OK).body(userService.deleteUser(userKey));
         }
-        logger.error(LoggerConfigBean.errorRequestLog(userKey,auth));
+        logger.error(LoggerConfigBean.errorRequestLog(userKey,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
     @PostMapping(value = "/move")
     public ResponseEntity moveUser(@RequestParam(name = "userKey") String userKey, @RequestParam(name = "latitude") Double latitude,@RequestParam(name = "longitude") Double longitude) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(userService.isUserAuthorized(userKey,auth)){
-            logger.info(LoggerConfigBean.infoMapLog(userKey,latitude.toString(),longitude.toString()));
+            logger.info(LoggerConfigBean.infoMapLog(userKey,latitude.toString(),longitude.toString(),userService.getClass().getSimpleName(),applicationLogServiceImpl));
             return ResponseEntity.status(HttpStatus.OK).body(userService.moveUser(userKey,latitude,longitude));
         }
-        logger.error(LoggerConfigBean.errorRequestLog(userKey,auth));
+        logger.error(LoggerConfigBean.errorRequestLog(userKey,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
 }

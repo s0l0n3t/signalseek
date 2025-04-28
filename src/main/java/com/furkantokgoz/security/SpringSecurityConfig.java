@@ -48,6 +48,7 @@ public class SpringSecurityConfig {
                         ).hasAnyRole("ADMIN", "USER")
                         .requestMatchers(
                                 "/user/all",
+                                "/admin/log/**",
                                 "/room/all").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session

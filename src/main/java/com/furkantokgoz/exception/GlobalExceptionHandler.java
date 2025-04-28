@@ -1,7 +1,6 @@
 package com.furkantokgoz.exception;
 
 import com.sun.jdi.request.DuplicateRequestException;
-import org.antlr.v4.runtime.Token;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -71,6 +70,15 @@ public class GlobalExceptionHandler {
         );
         logger.error(tokenNotFoundException.getMessage() + " not found");
         return new ResponseEntity<>(errorResponse,HttpStatus.UNAUTHORIZED);
+    }
+    @ExceptionHandler(ApplicationLogNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleApplicationLogNotFoundException(ApplicationLogNotFoundException applicationLogNotFoundException){
+        ErrorResponse errorResponse = new ErrorResponse(
+                applicationLogNotFoundException.getMessage(),
+                HttpStatus.NOT_FOUND.value()
+        );
+        logger.error(applicationLogNotFoundException.getMessage() + " not found");
+        return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
     }
 
 }//translate duplicate to userisalreadyexists and roomalreadyexists

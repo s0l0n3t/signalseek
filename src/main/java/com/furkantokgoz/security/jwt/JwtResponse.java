@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Builder
@@ -13,5 +16,5 @@ import java.util.Date;
 @NoArgsConstructor
 public class JwtResponse {
     private String token;
-    private Date expiresIn;
+    private ZonedDateTime expiresIn;
 }

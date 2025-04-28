@@ -2,8 +2,10 @@ package com.furkantokgoz.controller;
 
 import com.furkantokgoz.config.LoggerConfigBean;
 import com.furkantokgoz.dto.AdminUserDto;
+import com.furkantokgoz.dto.Roles;
 import com.furkantokgoz.security.jwt.JwtUtil;
 import com.furkantokgoz.service.AdminUserServiceImpl;
+import com.furkantokgoz.service.ApplicationLogServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +25,18 @@ public class AdminAuthController {
     private JwtUtil jwtUtil;
     @Autowired
     private AdminUserServiceImpl adminUserService;
+    @Autowired
+    private ApplicationLogServiceImpl applicationLogService;
 
     @PostMapping("/login")
     public ResponseEntity adminLogin(@RequestBody AdminUserDto adminUserDto) {
         try{
             AdminUserDto control = adminUserService.getAdminuserByUsernameAndPassword(adminUserDto.getUsername(), adminUserDto.getPassword());
             control.setGetAuthorities(List.of(new SimpleGrantedAuthority("ROLE_ADMIN")));
-            logger.info(LoggerConfigBean.loginAuthLog(control.getUsername()));
+            logger.info(LoggerConfigBean.loginAuthLog(control.getUsername(),applicationLogService,adminUserService.getClass().getSimpleName()));
             return ResponseEntity.status(HttpStatus.OK).body(jwtUtil.generateToken(control.getUsername(),control.getGetAuthorities()));
     }catch (BadCredentialsException e){
-            logger.error(LoggerConfigBean.errorAuthLog(adminUserDto.getUsername()));
+            logger.error(LoggerConfigBean.errorAuthLog(adminUserDto.getUsername(),applicationLogService,adminUserService.getClass().getSimpleName()));
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
         }//error format düzelt
         catch (Exception e){
@@ -43,7 +47,7 @@ public class AdminAuthController {
 
     @PostMapping("/register")
     public ResponseEntity<AdminUserDto> registerUser(@RequestBody AdminUserDto adminUserDto) {
-        logger.info(adminUserDto.getUsername() + " created");
+        logger.info(LoggerConfigBean.userCrated(Roles.ROLE_ADMIN,adminUserDto.getUsername(),applicationLogService,adminUserService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.OK
         ).body(adminUserService.createAdminUser(adminUserDto));
     }

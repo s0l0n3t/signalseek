@@ -15,10 +15,9 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.DateFormat;
+import java.time.*;
+import java.util.*;
 import java.util.function.Function;
 
 @Component
@@ -27,6 +26,7 @@ public class JwtUtil implements Serializable {
     // hash işlemi yaparken kullanılacak key
     private SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     private final int expireIn = 24*60 * 60 * 1000; //1 day expires
+
 
     // verilen token a ait kullanıcı adını döndürür.
     public String extractUsername(String token) {
@@ -67,7 +67,7 @@ public class JwtUtil implements Serializable {
         claims.put("roles", authorities.stream().map(GrantedAuthority::getAuthority).toList());
         return JwtResponse.builder()
                 .token(createToken(claims,hash))
-                .expiresIn(new Date(System.currentTimeMillis() + expireIn)) //GMT +0
+                .expiresIn(LocalDateTime.now().withNano(0).plus(Duration.ofMillis(expireIn)).atZone(ZoneId.systemDefault()))
                 .build();
     }
 

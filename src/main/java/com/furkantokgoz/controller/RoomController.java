@@ -1,9 +1,11 @@
 package com.furkantokgoz.controller;
 
 import com.furkantokgoz.config.LoggerConfigBean;
+import com.furkantokgoz.dto.Roles;
 import com.furkantokgoz.dto.RoomDto;
 import com.furkantokgoz.security.jwt.JwtUtil;
 import com.furkantokgoz.service.AdminUserServiceImpl;
+import com.furkantokgoz.service.ApplicationLogServiceImpl;
 import com.furkantokgoz.service.RoomServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,11 +31,13 @@ public class RoomController {
     private JwtUtil jwtUtil;
     @Autowired
     private AdminUserServiceImpl adminUserServiceImpl;
+    @Autowired
+    private ApplicationLogServiceImpl applicationLogServiceImpl;
 
     @PostMapping("/create")
     public ResponseEntity createRoom(@RequestBody RoomDto roomDto) {
         roomService.createRoom(roomDto);
-        logger.info(roomDto.getRoomKey()+" room created");
+        logger.info(LoggerConfigBean.userCrated(Roles.ROLE_ROOM,roomDto.getRoomKey(),applicationLogServiceImpl,roomService.getClass().getSimpleName()));
         roomDto.setAuthorities(List.of(new SimpleGrantedAuthority("ROLE_ROOM")));
         return ResponseEntity.status(HttpStatus.CREATED).body(jwtUtil.generateToken(roomDto.getRoomKey(),roomDto.getAuthorities()));
     }//token output
@@ -41,24 +45,25 @@ public class RoomController {
     public ResponseEntity deleteRoom(@RequestParam String roomKey) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(roomService.isRoomAuthorized(roomKey,auth)){
-            logger.info(roomKey+" room deleted by "+auth.getName());
+            logger.info(LoggerConfigBean.userDeleted(Roles.ROLE_ROOM,roomKey,applicationLogServiceImpl,roomService.getClass().getSimpleName()));
             return ResponseEntity.status(HttpStatus.OK).body(roomService.deleteRoom(roomKey));
         }
-        logger.error(LoggerConfigBean.errorRequestLog(roomKey,auth));
+        logger.error(LoggerConfigBean.errorRequestLog(roomKey,auth,applicationLogServiceImpl,roomService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
     @GetMapping(value = "/all")
     public ResponseEntity<List<RoomDto>> getAllRooms() {
-        logger.info("all room called");
+        logger.info(LoggerConfigBean.userAllCalled(Roles.ROLE_ROOM,SecurityContextHolder.getContext().getAuthentication().getName(), applicationLogServiceImpl, roomService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.OK).body(roomService.findAllRooms());
-    }//admin authorizing
+    }
     @GetMapping(value = "/find", params = "roomKey")
     public ResponseEntity findRoomByRoomKey(@RequestParam String roomKey) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(roomService.isRoomAuthorized(roomKey,auth) || adminUserServiceImpl.isAdminAuthorized(auth)){
-            logger.info(LoggerConfigBean.infoFoundLog(roomKey,auth));
+            logger.info(LoggerConfigBean.infoFoundLog(roomKey,auth,applicationLogServiceImpl,roomService.getClass().getSimpleName()));
             return ResponseEntity.status(HttpStatus.OK).body(roomService.findRoomByRoomKey(roomKey));
         }
+        logger.error(LoggerConfigBean.errorRequestLog(roomKey,auth,applicationLogServiceImpl,roomService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
-    }//find room information
+    }
 }
