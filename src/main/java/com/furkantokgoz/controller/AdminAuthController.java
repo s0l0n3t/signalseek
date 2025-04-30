@@ -6,6 +6,7 @@ import com.furkantokgoz.dto.Roles;
 import com.furkantokgoz.security.jwt.JwtUtil;
 import com.furkantokgoz.service.AdminUserServiceImpl;
 import com.furkantokgoz.service.ApplicationLogServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class AdminAuthController {
     private AdminUserServiceImpl adminUserService;
     @Autowired
     private ApplicationLogServiceImpl applicationLogService;
-
+    @Operation(summary = "admin login endpoint")
     @PostMapping("/login")
     public ResponseEntity adminLogin(@RequestBody AdminUserDto adminUserDto) {
         try{

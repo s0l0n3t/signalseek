@@ -44,7 +44,6 @@ public class UserController {
     private AdminUserServiceImpl adminUserServiceImpl;
     @Autowired
     private ApplicationLogServiceImpl applicationLogServiceImpl;
-
     @GetMapping("/status")
     public ResponseEntity<HttpStatus> controllerTest() {
         return ResponseEntity.status(HttpStatus.OK).body(HttpStatus.OK);

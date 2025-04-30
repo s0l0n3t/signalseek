@@ -7,6 +7,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -14,7 +16,16 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig {
-
+    private static final String[] SWAGGER_WHITELIST = {
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            "/swagger-ui.html",
+            "/swagger-resources/**",
+            "/webjars/**",
+            "/configuration/**",
+            "/v2/api-docs",
+            "/v3/**"
+    };//swagger links
     private final JwtFilter jwtFilter;
 
     public SpringSecurityConfig(JwtFilter jwtFilter) {
@@ -23,7 +34,7 @@ public class SpringSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**").disable())
+                .csrf(AbstractHttpConfigurer::disable)
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
@@ -35,6 +46,7 @@ public class SpringSecurityConfig {
                                 "/h2-console",
                                 "/h2-console/**"
                         ).permitAll()
+                        .requestMatchers(SWAGGER_WHITELIST).permitAll()
                         .requestMatchers(
                                 "/user/find",
                                 "/room/find",
