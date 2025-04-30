@@ -81,7 +81,9 @@ public class ApplicationLogServiceImpl implements IApplicationLogService{
 
     @Override
     public ApplicationLogDto deleteById(long id) {
-        return ApplicationLogMapper.toDto(applicationLogRepository.deleteById(id).orElseThrow(ApplicationLogNotFoundException::new));
+        ApplicationLogEntity entity = applicationLogRepository.findById(id).orElseThrow(ApplicationLogNotFoundException::new);
+        applicationLogRepository.delete(entity);
+        return ApplicationLogMapper.toDto(entity);
     }
     @Override
     public ApplicationLogDto update(long id,ApplicationLogDto applicationLogDto) {

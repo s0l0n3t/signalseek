@@ -71,9 +71,6 @@ public class AdminUserServiceImpl implements IAdminUserService{
     @Override
     public AdminUserDto deleteAdminUserByUsername(String username) {
         AdminUserDto adminUserDto = AdminUserMapper.toDto(adminUserRepository.findByUsername(username).orElseThrow(()-> new UserNotFoundException(username)));
-        if(!adminUserRepository.existsByUsername(username)){
-            throw new UserNotFoundException(username + " not found");
-        }
         adminUserRepository.deleteById(adminUserDto.getId());//dto and entity had long variables so it's true.
         return adminUserDto;
     }

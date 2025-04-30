@@ -15,5 +15,5 @@ public interface ApplicationLogRepository extends JpaRepository<ApplicationLogEn
     public List<ApplicationLogEntity> findByLogType(LogType logType);
     public List<ApplicationLogEntity> findByLoggerName(String loggerName);
     public List<ApplicationLogEntity> findByUserName(String userName);
-    public Optional<ApplicationLogEntity> deleteById(long applicationId);
+    public ApplicationLogEntity deleteById(long applicationId);
 }
