@@ -28,6 +28,7 @@ public class RoomServiceImpl implements IRoomService {
     }
     @Override
     public RoomDto createRoom(RoomDto roomDto) {
+        roomDto.setRoomKey(UUID.randomUUID().toString());
         if(roomRepository.existsByRoomKey(roomDto.getRoomKey())) {
             throw new DuplicateRequestException("Room already exists");
         }

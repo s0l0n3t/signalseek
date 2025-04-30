@@ -11,7 +11,6 @@ import com.furkantokgoz.service.AdminUserServiceImpl;
 import com.furkantokgoz.service.ApplicationLogServiceImpl;
 import com.furkantokgoz.service.RoomServiceImpl;
 import com.furkantokgoz.service.UserServiceImpl;
-import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

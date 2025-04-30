@@ -1,5 +1,6 @@
 package com.furkantokgoz.repository;
 
+import com.furkantokgoz.entity.GeoLocationEntity;
 import com.furkantokgoz.entity.UserEntity;
 import org.apache.catalina.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,5 +17,5 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Optional<List<UserEntity>> findByRoom_RoomKey(String roomRoomKey);
     Boolean existsByIpAddress(String ipAddress);
     Boolean existsByRoom_RoomKey(String roomRoomKey);
-    //Optional object is more safe. Throwing exceptions and more.
+    List<UserEntity> findGeolocationsByUserKey(String userKey);
 }

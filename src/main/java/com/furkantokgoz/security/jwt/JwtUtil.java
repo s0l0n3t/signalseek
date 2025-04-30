@@ -66,6 +66,7 @@ public class JwtUtil implements Serializable {
         Map<String, Object> claims = new HashMap<>();
         claims.put("roles", authorities.stream().map(GrantedAuthority::getAuthority).toList());
         return JwtResponse.builder()
+                .key(hash)
                 .token(createToken(claims,hash))
                 .expiresIn(LocalDateTime.now().withNano(0).plus(Duration.ofMillis(expireIn)).atZone(ZoneId.systemDefault()))
                 .build();

@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -33,4 +35,7 @@ public class UserEntity implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "room_id")
     private RoomEntity room;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<GeoLocationEntity> geolocations = new ArrayList<GeoLocationEntity>();
 }

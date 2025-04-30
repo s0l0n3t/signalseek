@@ -23,4 +23,5 @@ public interface IUserService {
     public UserDto moveUser(String userKey, Double latitude, Double longitude);
     public Boolean isUserExist(String userKey);
     public Boolean isUserAuthorized(String userKey, Authentication authentication);
+    public List<UserDto> getGeoLocationByUserKey(String userKey);
 }

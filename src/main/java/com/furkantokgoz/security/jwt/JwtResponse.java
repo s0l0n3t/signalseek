@@ -15,6 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JwtResponse {
+    private String key;
     private String token;
     private ZonedDateTime expiresIn;
 }

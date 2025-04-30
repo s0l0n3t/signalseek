@@ -44,7 +44,6 @@ public class JwtFilter extends OncePerRequestFilter {
             return;
         }
         try{
-            System.out.println(jwtUtil.extractAllClaims(jwt));//
             if (jwtUtil.validateToken(jwt)) {
                 String hash = jwtUtil.extractUsername(jwt);
                 var authorities = jwtUtil.extractAuthorities(jwt);

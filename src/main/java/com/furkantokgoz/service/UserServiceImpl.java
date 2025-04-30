@@ -1,10 +1,14 @@
 package com.furkantokgoz.service;
 
 import com.furkantokgoz.config.ClientAddressResolver;
+import com.furkantokgoz.dto.GeoLocationDto;
 import com.furkantokgoz.dto.UserDto;
+import com.furkantokgoz.entity.GeoLocationEntity;
 import com.furkantokgoz.entity.UserEntity;
+import com.furkantokgoz.exception.RoomNotFoundException;
 import com.furkantokgoz.exception.UserNotFoundException;
 import com.furkantokgoz.mapper.UserMapper;
+import com.furkantokgoz.repository.GeoLocationRepository;
 import com.furkantokgoz.repository.RoomRepository;
 import com.furkantokgoz.repository.UserRepository;
 import com.furkantokgoz.security.jwt.JwtResponse;
@@ -17,33 +21,45 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements IUserService {
 
     private final ClientAddressResolver clientAddressResolver;
+    private final GeoLocationRepository geoLocationRepository;
     private RoomRepository roomRepository;
     private UserRepository userRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, RoomRepository roomRepository, ClientAddressResolver clientAddressResolver) {
+    public UserServiceImpl(UserRepository userRepository, RoomRepository roomRepository, ClientAddressResolver clientAddressResolver, GeoLocationRepository geoLocationRepository) {
         this.userRepository = userRepository;
         this.roomRepository = roomRepository;
         this.clientAddressResolver = clientAddressResolver;
+        this.geoLocationRepository = geoLocationRepository;
     }
     @Override
     public UserDto createUser(UserDto userDto){
+        userDto.setUserKey(UUID.randomUUID().toString().toLowerCase(Locale.ENGLISH));
         if(userRepository.existsByUserKey(userDto.getUserKey())){
 //Conflict response error.
             throw new DuplicateRequestException(userDto.getUserKey() + " is already in use");
         }
         if(userDto.getRoomKey() == null || userDto.getRoomKey().isBlank()){ //isblank includes " " but isEmpty is not.
-            throw new NullPointerException("roomKey is null");
+            throw new RoomNotFoundException("roomKey is null");
         }
-        userDto.setUserKey(userDto.getUserKey().toLowerCase(Locale.ENGLISH));
         userDto.setRoomKey(userDto.getRoomKey().toLowerCase(Locale.ENGLISH));
+        userDto.setLongitude(null);
+        userDto.setLatitude(null);
         userDto.setIpAddress(clientAddressResolver.Resolve());
+        userDto.setGeoLocations(new ArrayList<>());
         UserEntity userEntity = UserMapper.toEntity(userDto,roomRepository);
+        if(userEntity.getLatitude() != null && userEntity.getLongitude() != null){
+            geoLocationRepository.save(GeoLocationEntity.builder().user(userEntity)
+                    .longitude(userEntity.getLongitude())
+                    .latitude(userEntity.getLatitude())
+                    .build());
+        }
         if (userEntity.getIpAddress() == null){
             throw new NullPointerException("ipAddress is null");
         }//business layer security
@@ -122,10 +138,17 @@ public class UserServiceImpl implements IUserService {
         return userDtoList;
     }//Internal error
     @Override
+    public List<UserDto> getGeoLocationByUserKey(String userKey){
+        return userRepository.findGeolocationsByUserKey(userKey).stream()
+                .map(UserMapper::toDto)
+                .collect(Collectors.toList());
+    }
+    @Override
     public UserDto moveUser(String userKey, Double latitude, Double longitude){
         UserEntity userEntity = userRepository.findByUserKey(userKey).orElseThrow(() -> new UserNotFoundException(userKey));
         userEntity.setLatitude(latitude);
         userEntity.setLongitude(longitude);
+        geoLocationRepository.save(GeoLocationEntity.builder().longitude(userEntity.getLongitude()).latitude(userEntity.getLatitude()).user(userEntity).build());
         userRepository.save(userEntity);
         return UserMapper.toDto(userEntity);
     }

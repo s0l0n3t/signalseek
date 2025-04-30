@@ -65,7 +65,7 @@ public class LoggerConfigBean {
         log.setLoggerName(serviceClass);
         log.setLogType(LogType.INFO);
         service.create(ApplicationLogMapper.toDto(log));
-        return role.name()+" "+ username + "created ";
+        return role.name()+" "+ username + " created ";
     }
     public static String userDeleted(Roles role,String username, ApplicationLogServiceImpl service, String serviceClass) {
         ApplicationLogEntity log = new ApplicationLogEntity();
