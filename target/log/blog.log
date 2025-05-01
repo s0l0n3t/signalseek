@@ -1,0 +1,42 @@
+2025-05-01T19:08:52.444+03:00  INFO 9652 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication v0.0.1-SNAPSHOT using Java 23.0.1 with PID 9652 (C:\furkanWorks\signalseek\target\signalseek-0.0.1-SNAPSHOT.jar started by Admin in C:\furkanWorks\signalseek\target)
+2025-05-01T19:08:52.448+03:00  INFO 9652 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T19:08:53.485+03:00  INFO 9652 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T19:08:53.574+03:00  INFO 9652 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 5 JPA repository interfaces.
+2025-05-01T19:08:54.325+03:00  INFO 9652 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T19:08:54.345+03:00  INFO 9652 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T19:08:54.345+03:00  INFO 9652 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T19:08:54.388+03:00  INFO 9652 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T19:08:54.389+03:00  INFO 9652 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1855 ms
+2025-05-01T19:08:54.564+03:00  INFO 9652 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T19:08:54.649+03:00  INFO 9652 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T19:08:54.722+03:00  INFO 9652 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T19:08:55.036+03:00  INFO 9652 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T19:08:55.077+03:00  INFO 9652 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T19:08:55.429+03:00  INFO 9652 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2efcc0b3
+2025-05-01T19:08:55.431+03:00  INFO 9652 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T19:08:55.460+03:00  WARN 9652 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T19:08:55.477+03:00  INFO 9652 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T19:08:56.369+03:00  INFO 9652 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T19:08:56.564+03:00  INFO 9652 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:08:57.201+03:00  WARN 9652 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T19:08:57.931+03:00  INFO 9652 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T19:08:58.322+03:00  INFO 9652 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T19:08:58.382+03:00  INFO 9652 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T19:08:58.391+03:00  INFO 9652 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 6.41 seconds (process running for 6.945)
+2025-05-01T19:09:04.609+03:00  INFO 9652 --- [signalseek] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-01T19:09:04.610+03:00  INFO 9652 --- [signalseek] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-01T19:09:04.612+03:00  INFO 9652 --- [signalseek] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-01T19:09:05.178+03:00  INFO 9652 --- [signalseek] [http-nio-8080-exec-2] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 494 ms
+2025-05-01T19:09:15.515+03:00  INFO 9652 --- [signalseek] [http-nio-8080-exec-5] c.f.controller.AdminAuthController       : user123 logged in
+2025-05-01T19:09:25.947+03:00  INFO 9652 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T19:09:25.955+03:00  INFO 9652 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T19:09:25.963+03:00  INFO 9652 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:09:25.967+03:00  INFO 9652 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T19:09:25.977+03:00  INFO 9652 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
