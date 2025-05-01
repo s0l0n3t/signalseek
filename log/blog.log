@@ -411,3 +411,753 @@
 2025-05-01T16:23:20.590+03:00  INFO 26816 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-05-01T16:23:20.634+03:00  INFO 26816 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-05-01T16:23:20.653+03:00  INFO 26816 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T17:31:31.295+03:00  INFO 22872 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 22872 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T17:31:31.298+03:00  INFO 22872 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T17:31:33.124+03:00  INFO 22872 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T17:31:33.242+03:00  INFO 22872 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105 ms. Found 5 JPA repository interfaces.
+2025-05-01T17:31:34.074+03:00  INFO 22872 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T17:31:34.092+03:00  INFO 22872 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T17:31:34.092+03:00  INFO 22872 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T17:31:34.171+03:00  INFO 22872 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T17:31:34.173+03:00  INFO 22872 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2786 ms
+2025-05-01T17:31:34.410+03:00  INFO 22872 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T17:31:34.504+03:00  INFO 22872 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T17:31:34.595+03:00  INFO 22872 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T17:31:34.980+03:00  INFO 22872 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T17:31:35.015+03:00  INFO 22872 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T17:31:35.284+03:00  INFO 22872 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7dddfc35
+2025-05-01T17:31:35.286+03:00  INFO 22872 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T17:31:35.375+03:00  WARN 22872 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T17:31:35.418+03:00  INFO 22872 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T17:31:36.648+03:00  INFO 22872 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T17:31:36.875+03:00  INFO 22872 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T17:31:37.588+03:00  WARN 22872 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T17:31:38.273+03:00  INFO 22872 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T17:31:38.659+03:00  INFO 22872 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T17:31:38.716+03:00  INFO 22872 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T17:31:38.723+03:00  INFO 22872 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 8.037 seconds (process running for 9.218)
+2025-05-01T17:36:46.211+03:00  INFO 22872 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T17:36:46.239+03:00  INFO 22872 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T17:36:46.265+03:00  INFO 22872 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T17:36:46.286+03:00  INFO 22872 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T17:36:46.325+03:00  INFO 22872 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T17:46:40.549+03:00  INFO 1700 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 1700 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T17:46:40.552+03:00  INFO 1700 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T17:46:42.731+03:00  INFO 1700 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T17:46:42.854+03:00  INFO 1700 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 5 JPA repository interfaces.
+2025-05-01T17:46:44.117+03:00  INFO 1700 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T17:46:44.249+03:00  INFO 1700 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T17:46:44.308+03:00  INFO 1700 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T17:46:45.105+03:00  INFO 1700 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T17:46:45.143+03:00  INFO 1700 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T17:46:45.581+03:00  INFO 1700 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@46994f26
+2025-05-01T17:46:45.584+03:00  INFO 1700 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T17:46:45.672+03:00  WARN 1700 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T17:46:45.712+03:00  INFO 1700 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T17:46:47.553+03:00  INFO 1700 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T17:46:47.879+03:00  INFO 1700 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T17:46:49.104+03:00  WARN 1700 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T17:46:50.674+03:00  INFO 1700 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T17:46:51.328+03:00  INFO 1700 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T17:46:51.408+03:00  INFO 1700 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 11.467 seconds (process running for 14.692)
+2025-05-01T17:46:52.511+03:00  INFO 1700 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T17:46:52.514+03:00  INFO 1700 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T17:46:52.523+03:00  INFO 1700 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T17:55:24.053+03:00  INFO 25128 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 25128 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T17:55:24.055+03:00  INFO 25128 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T17:55:26.850+03:00  INFO 25128 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T17:55:26.999+03:00  INFO 25128 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 127 ms. Found 5 JPA repository interfaces.
+2025-05-01T17:55:28.274+03:00  INFO 25128 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T17:55:28.406+03:00  INFO 25128 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T17:55:28.479+03:00  INFO 25128 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T17:55:29.166+03:00  INFO 25128 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T17:55:29.212+03:00  INFO 25128 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T17:55:29.647+03:00  INFO 25128 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1cdd31a4
+2025-05-01T17:55:29.655+03:00  INFO 25128 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T17:55:29.810+03:00  WARN 25128 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T17:55:29.895+03:00  INFO 25128 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T17:55:34.799+03:00  INFO 25128 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T17:55:36.690+03:00  INFO 25128 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T17:55:44.218+03:00  WARN 25128 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T17:55:47.244+03:00  INFO 25128 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T17:55:48.118+03:00  INFO 25128 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T17:55:48.183+03:00  INFO 25128 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 24.694 seconds (process running for 26.52)
+2025-05-01T17:55:49.125+03:00  INFO 25128 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T17:55:49.128+03:00  INFO 25128 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T17:55:49.142+03:00  INFO 25128 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T17:59:53.229+03:00  INFO 18704 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 18704 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T17:59:53.231+03:00  INFO 18704 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T17:59:55.554+03:00  INFO 18704 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T17:59:55.692+03:00  INFO 18704 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122 ms. Found 5 JPA repository interfaces.
+2025-05-01T17:59:57.129+03:00  INFO 18704 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T17:59:57.213+03:00  INFO 18704 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T17:59:57.287+03:00  INFO 18704 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T17:59:57.848+03:00  INFO 18704 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T17:59:57.890+03:00  INFO 18704 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T17:59:58.244+03:00  INFO 18704 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@14239223
+2025-05-01T17:59:58.247+03:00  INFO 18704 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T17:59:58.299+03:00  WARN 18704 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T17:59:58.330+03:00  INFO 18704 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T17:59:59.950+03:00  INFO 18704 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:00:00.229+03:00  INFO 18704 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:00:01.455+03:00  WARN 18704 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:00:03.131+03:00  INFO 18704 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:00:03.936+03:00  INFO 18704 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:00:04.044+03:00  INFO 18704 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 11.489 seconds (process running for 13.207)
+2025-05-01T18:00:05.253+03:00  INFO 18704 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:00:05.263+03:00  INFO 18704 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:00:05.278+03:00  INFO 18704 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:03:34.380+03:00  INFO 30560 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 30560 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:03:34.383+03:00  INFO 30560 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:03:36.747+03:00  INFO 30560 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:03:36.923+03:00  INFO 30560 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:03:38.275+03:00  INFO 30560 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:03:38.379+03:00  INFO 30560 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:03:38.487+03:00  INFO 30560 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:03:40.249+03:00  INFO 30560 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:03:40.368+03:00  INFO 30560 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:03:41.128+03:00  INFO 30560 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1cdd31a4
+2025-05-01T18:03:41.135+03:00  INFO 30560 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:03:41.299+03:00  WARN 30560 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:03:41.406+03:00  INFO 30560 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:03:48.747+03:00  INFO 30560 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:03:49.479+03:00  INFO 30560 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:03:53.642+03:00  WARN 30560 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:03:58.323+03:00  INFO 30560 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:04:00.460+03:00  INFO 30560 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:04:00.668+03:00  INFO 30560 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 27.006 seconds (process running for 29.987)
+2025-05-01T18:04:02.290+03:00  INFO 30560 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:04:02.296+03:00  INFO 30560 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:04:02.306+03:00  INFO 30560 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:12:09.557+03:00  INFO 15732 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 15732 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:12:09.562+03:00  INFO 15732 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:12:12.178+03:00  INFO 15732 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:12:12.341+03:00  INFO 15732 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 147 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:12:13.553+03:00  INFO 15732 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:12:13.687+03:00  INFO 15732 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:12:13.784+03:00  INFO 15732 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:12:14.432+03:00  INFO 15732 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:12:14.476+03:00  INFO 15732 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:12:14.961+03:00  INFO 15732 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@432a6a69
+2025-05-01T18:12:14.963+03:00  INFO 15732 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:12:15.042+03:00  WARN 15732 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:12:15.074+03:00  INFO 15732 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:12:16.937+03:00  INFO 15732 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:12:17.369+03:00  INFO 15732 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:12:18.631+03:00  WARN 15732 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:12:20.229+03:00  INFO 15732 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:12:20.865+03:00  INFO 15732 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:12:20.939+03:00  INFO 15732 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 12.099 seconds (process running for 14.627)
+2025-05-01T18:12:22.150+03:00  INFO 15732 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:12:22.157+03:00  INFO 15732 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:12:22.162+03:00  INFO 15732 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:13:24.543+03:00  INFO 30868 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 30868 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:13:24.544+03:00  INFO 30868 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:13:25.355+03:00  INFO 30868 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:13:25.414+03:00  INFO 30868 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:13:25.921+03:00  INFO 30868 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T18:13:25.934+03:00  INFO 30868 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T18:13:25.935+03:00  INFO 30868 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T18:13:25.981+03:00  INFO 30868 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T18:13:25.982+03:00  INFO 30868 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1397 ms
+2025-05-01T18:13:26.089+03:00  INFO 30868 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:13:26.152+03:00  INFO 30868 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:13:26.211+03:00  INFO 30868 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:13:26.454+03:00  INFO 30868 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:13:26.483+03:00  INFO 30868 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:13:26.659+03:00  INFO 30868 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@70169464
+2025-05-01T18:13:26.661+03:00  INFO 30868 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:13:26.706+03:00  WARN 30868 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:13:26.722+03:00  INFO 30868 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:13:27.590+03:00  INFO 30868 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:13:27.753+03:00  INFO 30868 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:13:28.281+03:00  WARN 30868 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:13:28.770+03:00  INFO 30868 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:13:29.089+03:00  INFO 30868 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:13:29.134+03:00  INFO 30868 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T18:13:29.140+03:00  INFO 30868 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 4.998 seconds (process running for 5.705)
+2025-05-01T18:13:32.637+03:00  INFO 30868 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T18:13:32.642+03:00  INFO 30868 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T18:13:32.646+03:00  INFO 30868 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:13:32.648+03:00  INFO 30868 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:13:32.652+03:00  INFO 30868 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:15:22.572+03:00  INFO 29320 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 29320 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:15:22.573+03:00  INFO 29320 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:15:23.414+03:00  INFO 29320 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:15:23.470+03:00  INFO 29320 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:15:24.035+03:00  INFO 29320 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T18:15:24.053+03:00  INFO 29320 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T18:15:24.053+03:00  INFO 29320 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T18:15:24.098+03:00  INFO 29320 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T18:15:24.099+03:00  INFO 29320 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1480 ms
+2025-05-01T18:15:24.206+03:00  INFO 29320 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:15:24.263+03:00  INFO 29320 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:15:24.315+03:00  INFO 29320 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:15:24.554+03:00  INFO 29320 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:15:24.582+03:00  INFO 29320 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:15:24.760+03:00  INFO 29320 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@120d6cbf
+2025-05-01T18:15:24.761+03:00  INFO 29320 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:15:24.807+03:00  WARN 29320 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:15:24.825+03:00  INFO 29320 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:15:25.667+03:00  INFO 29320 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:15:25.840+03:00  INFO 29320 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:15:26.390+03:00  WARN 29320 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:15:26.875+03:00  INFO 29320 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:15:27.179+03:00  INFO 29320 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:15:27.219+03:00  INFO 29320 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T18:15:27.225+03:00  INFO 29320 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 5.054 seconds (process running for 5.82)
+2025-05-01T18:15:29.564+03:00  INFO 29320 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T18:15:29.568+03:00  INFO 29320 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T18:15:29.573+03:00  INFO 29320 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:15:29.575+03:00  INFO 29320 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:15:29.580+03:00  INFO 29320 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:21:00.058+03:00  INFO 30104 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 30104 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:21:00.060+03:00  INFO 30104 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:21:00.928+03:00  INFO 30104 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:21:00.991+03:00  INFO 30104 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:21:01.478+03:00  INFO 30104 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T18:21:01.492+03:00  INFO 30104 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T18:21:01.492+03:00  INFO 30104 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T18:21:01.542+03:00  INFO 30104 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T18:21:01.542+03:00  INFO 30104 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1435 ms
+2025-05-01T18:21:01.677+03:00  INFO 30104 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:21:01.747+03:00  INFO 30104 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:21:01.789+03:00  INFO 30104 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:21:02.021+03:00  INFO 30104 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:21:02.051+03:00  INFO 30104 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:21:02.215+03:00  INFO 30104 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4ca5cb99
+2025-05-01T18:21:02.220+03:00  INFO 30104 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:21:02.263+03:00  WARN 30104 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:21:02.279+03:00  INFO 30104 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:21:03.121+03:00  INFO 30104 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:21:03.286+03:00  INFO 30104 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:21:03.808+03:00  WARN 30104 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:21:04.295+03:00  INFO 30104 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:21:04.600+03:00  INFO 30104 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:21:04.656+03:00  INFO 30104 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T18:21:04.662+03:00  INFO 30104 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 4.986 seconds (process running for 5.969)
+2025-05-01T18:21:07.601+03:00  INFO 30104 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T18:21:07.608+03:00  INFO 30104 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T18:21:07.612+03:00  INFO 30104 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:21:07.614+03:00  INFO 30104 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:21:07.617+03:00  INFO 30104 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:22:11.011+03:00  INFO 36616 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 36616 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:22:11.012+03:00  INFO 36616 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:22:12.052+03:00  INFO 36616 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:22:12.131+03:00  INFO 36616 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:22:12.703+03:00  INFO 36616 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:22:12.784+03:00  INFO 36616 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:22:12.825+03:00  INFO 36616 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:22:13.128+03:00  INFO 36616 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:22:13.162+03:00  INFO 36616 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:22:13.330+03:00  INFO 36616 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b50c21
+2025-05-01T18:22:13.331+03:00  INFO 36616 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:22:13.362+03:00  WARN 36616 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:22:13.383+03:00  INFO 36616 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:22:14.247+03:00  INFO 36616 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:22:14.425+03:00  INFO 36616 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:22:14.973+03:00  WARN 36616 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:22:15.689+03:00  INFO 36616 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:22:15.982+03:00  INFO 36616 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:22:16.018+03:00  INFO 36616 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 5.261 seconds (process running for 6.199)
+2025-05-01T18:22:16.549+03:00  INFO 36616 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:22:16.551+03:00  INFO 36616 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:22:16.558+03:00  INFO 36616 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:23:41.832+03:00  INFO 28048 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 28048 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:23:41.834+03:00  INFO 28048 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:23:42.495+03:00  INFO 28048 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:23:42.550+03:00  INFO 28048 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:23:42.962+03:00  INFO 28048 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T18:23:42.973+03:00  INFO 28048 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T18:23:42.973+03:00  INFO 28048 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T18:23:43.015+03:00  INFO 28048 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T18:23:43.016+03:00  INFO 28048 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1146 ms
+2025-05-01T18:23:43.119+03:00  INFO 28048 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:23:43.153+03:00  INFO 28048 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:23:43.199+03:00  INFO 28048 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:23:43.403+03:00  INFO 28048 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:23:43.429+03:00  INFO 28048 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:23:43.556+03:00  INFO 28048 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1115be8c
+2025-05-01T18:23:43.557+03:00  INFO 28048 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:23:43.586+03:00  WARN 28048 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:23:43.601+03:00  INFO 28048 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:23:44.309+03:00  INFO 28048 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:23:44.482+03:00  INFO 28048 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:23:44.920+03:00  WARN 28048 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:23:45.344+03:00  INFO 28048 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:23:45.618+03:00  INFO 28048 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:23:45.660+03:00  INFO 28048 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T18:23:45.667+03:00  INFO 28048 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 4.171 seconds (process running for 4.634)
+2025-05-01T18:23:47.424+03:00  INFO 28048 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T18:23:47.430+03:00  INFO 28048 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T18:23:47.435+03:00  INFO 28048 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:23:47.437+03:00  INFO 28048 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:23:47.442+03:00  INFO 28048 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:26:25.943+03:00  INFO 31440 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 31440 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:26:25.945+03:00  INFO 31440 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:26:26.716+03:00  INFO 31440 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:26:26.777+03:00  INFO 31440 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:26:27.341+03:00  INFO 31440 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T18:26:27.354+03:00  INFO 31440 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T18:26:27.354+03:00  INFO 31440 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T18:26:27.408+03:00  INFO 31440 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T18:26:27.408+03:00  INFO 31440 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1424 ms
+2025-05-01T18:26:27.567+03:00  INFO 31440 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:26:27.639+03:00  INFO 31440 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:26:27.699+03:00  INFO 31440 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:26:27.938+03:00  INFO 31440 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:26:27.965+03:00  INFO 31440 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:26:28.133+03:00  INFO 31440 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@71316cd7
+2025-05-01T18:26:28.134+03:00  INFO 31440 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:26:28.178+03:00  WARN 31440 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:26:28.202+03:00  INFO 31440 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:26:29.040+03:00  INFO 31440 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:26:29.209+03:00  INFO 31440 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:26:29.739+03:00  WARN 31440 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:26:30.231+03:00  INFO 31440 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:26:30.532+03:00  INFO 31440 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:26:30.575+03:00  INFO 31440 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T18:26:30.581+03:00  INFO 31440 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 5.023 seconds (process running for 5.67)
+2025-05-01T18:26:32.241+03:00  INFO 31440 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T18:26:32.250+03:00  INFO 31440 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T18:26:32.260+03:00  INFO 31440 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:26:32.267+03:00  INFO 31440 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:26:32.277+03:00  INFO 31440 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:26:38.691+03:00  INFO 24240 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 24240 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:26:38.692+03:00  INFO 24240 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:26:39.537+03:00  INFO 24240 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:26:39.624+03:00  INFO 24240 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:26:40.276+03:00  INFO 24240 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:26:40.332+03:00  INFO 24240 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:26:40.374+03:00  INFO 24240 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:26:40.673+03:00  INFO 24240 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:26:40.699+03:00  INFO 24240 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:26:40.882+03:00  INFO 24240 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b50c21
+2025-05-01T18:26:40.884+03:00  INFO 24240 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:26:40.913+03:00  WARN 24240 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:26:40.932+03:00  INFO 24240 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:26:41.798+03:00  INFO 24240 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:26:41.993+03:00  INFO 24240 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:26:42.636+03:00  WARN 24240 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:26:43.463+03:00  INFO 24240 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:26:43.815+03:00  INFO 24240 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:26:43.856+03:00  INFO 24240 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 5.437 seconds (process running for 6.36)
+2025-05-01T18:26:44.422+03:00  INFO 24240 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:26:44.426+03:00  INFO 24240 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:26:44.431+03:00  INFO 24240 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:27:48.766+03:00  INFO 14508 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 14508 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:27:48.768+03:00  INFO 14508 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:27:49.691+03:00  INFO 14508 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:27:49.761+03:00  INFO 14508 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:27:50.361+03:00  INFO 14508 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:27:50.421+03:00  INFO 14508 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:27:50.449+03:00  INFO 14508 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:27:50.728+03:00  INFO 14508 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:27:50.749+03:00  INFO 14508 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:27:50.912+03:00  INFO 14508 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6106dfb6
+2025-05-01T18:27:50.913+03:00  INFO 14508 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:27:50.939+03:00  WARN 14508 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:27:50.960+03:00  INFO 14508 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:27:51.788+03:00  INFO 14508 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:27:51.963+03:00  INFO 14508 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:27:52.549+03:00  WARN 14508 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:27:53.332+03:00  INFO 14508 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:27:53.703+03:00  INFO 14508 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:27:53.739+03:00  INFO 14508 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 5.362 seconds (process running for 6.263)
+2025-05-01T18:27:54.240+03:00  INFO 14508 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:27:54.243+03:00  INFO 14508 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:27:54.251+03:00  INFO 14508 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:28:19.079+03:00  INFO 23176 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 23176 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:28:19.081+03:00  INFO 23176 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:28:20.138+03:00  INFO 23176 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:28:20.214+03:00  INFO 23176 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:28:20.847+03:00  INFO 23176 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:28:20.909+03:00  INFO 23176 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:28:20.948+03:00  INFO 23176 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:28:21.229+03:00  INFO 23176 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:28:21.252+03:00  INFO 23176 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:28:21.413+03:00  INFO 23176 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7c206b14
+2025-05-01T18:28:21.414+03:00  INFO 23176 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:28:21.439+03:00  WARN 23176 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:28:21.457+03:00  INFO 23176 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:28:22.306+03:00  INFO 23176 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:28:22.480+03:00  INFO 23176 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:28:23.029+03:00  WARN 23176 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:28:23.809+03:00  INFO 23176 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:28:24.166+03:00  INFO 23176 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:28:24.207+03:00  INFO 23176 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 5.388 seconds (process running for 6.262)
+2025-05-01T18:28:24.748+03:00  INFO 23176 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:28:24.751+03:00  INFO 23176 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:28:24.754+03:00  INFO 23176 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T18:29:28.034+03:00  INFO 4288 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 4288 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T18:29:28.035+03:00  INFO 4288 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T18:29:29.083+03:00  INFO 4288 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T18:29:29.171+03:00  INFO 4288 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 5 JPA repository interfaces.
+2025-05-01T18:29:29.803+03:00  INFO 4288 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T18:29:29.894+03:00  INFO 4288 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T18:29:29.927+03:00  INFO 4288 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T18:29:30.227+03:00  INFO 4288 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T18:29:30.257+03:00  INFO 4288 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T18:29:30.464+03:00  INFO 4288 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b50c21
+2025-05-01T18:29:30.465+03:00  INFO 4288 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T18:29:30.490+03:00  WARN 4288 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T18:29:30.507+03:00  INFO 4288 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T18:29:31.376+03:00  INFO 4288 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T18:29:31.534+03:00  INFO 4288 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:29:32.062+03:00  WARN 4288 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T18:29:32.731+03:00  INFO 4288 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T18:29:33.035+03:00  INFO 4288 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T18:29:33.067+03:00  INFO 4288 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 5.326 seconds (process running for 6.221)
+2025-05-01T18:29:33.557+03:00  INFO 4288 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T18:29:33.559+03:00  INFO 4288 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T18:29:33.564+03:00  INFO 4288 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T19:01:15.935+03:00  INFO 19392 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 19392 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T19:01:15.937+03:00  INFO 19392 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T19:01:16.890+03:00  INFO 19392 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T19:01:16.972+03:00  INFO 19392 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 5 JPA repository interfaces.
+2025-05-01T19:01:17.541+03:00  INFO 19392 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T19:01:17.553+03:00  INFO 19392 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T19:01:17.554+03:00  INFO 19392 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T19:01:17.603+03:00  INFO 19392 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T19:01:17.604+03:00  INFO 19392 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1610 ms
+2025-05-01T19:01:17.721+03:00  INFO 19392 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T19:01:17.793+03:00  INFO 19392 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T19:01:17.841+03:00  INFO 19392 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T19:01:18.136+03:00  INFO 19392 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T19:01:18.172+03:00  INFO 19392 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T19:01:18.383+03:00  INFO 19392 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@70169464
+2025-05-01T19:01:18.389+03:00  INFO 19392 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T19:01:18.432+03:00  WARN 19392 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T19:01:18.447+03:00  INFO 19392 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T19:01:19.290+03:00  INFO 19392 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T19:01:19.480+03:00  INFO 19392 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:01:20.005+03:00  WARN 19392 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T19:01:20.528+03:00  INFO 19392 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T19:01:20.823+03:00  INFO 19392 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T19:01:20.872+03:00  INFO 19392 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T19:01:20.879+03:00  INFO 19392 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 5.417 seconds (process running for 6.278)
+2025-05-01T19:01:27.052+03:00  INFO 19392 --- [signalseek] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-01T19:01:27.052+03:00  INFO 19392 --- [signalseek] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-01T19:01:27.054+03:00  INFO 19392 --- [signalseek] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-01T19:01:27.841+03:00  INFO 19392 --- [signalseek] [http-nio-8080-exec-10] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 371 ms
+2025-05-01T19:01:41.697+03:00  INFO 19392 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T19:01:41.701+03:00  INFO 19392 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T19:01:41.705+03:00  INFO 19392 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:01:41.707+03:00  INFO 19392 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T19:01:41.712+03:00  INFO 19392 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T19:01:54.671+03:00  INFO 35196 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 35196 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T19:01:54.672+03:00  INFO 35196 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T19:01:55.519+03:00  INFO 35196 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T19:01:55.585+03:00  INFO 35196 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
+2025-05-01T19:01:56.111+03:00  INFO 35196 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T19:01:56.184+03:00  INFO 35196 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T19:01:56.220+03:00  INFO 35196 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T19:01:56.550+03:00  INFO 35196 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T19:01:56.576+03:00  INFO 35196 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T19:01:56.763+03:00  INFO 35196 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5f33e6d
+2025-05-01T19:01:56.764+03:00  INFO 35196 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T19:01:56.811+03:00  WARN 35196 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T19:01:56.839+03:00  INFO 35196 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T19:01:57.823+03:00  INFO 35196 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T19:01:58.013+03:00  INFO 35196 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:01:58.621+03:00  WARN 35196 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T19:01:59.387+03:00  INFO 35196 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T19:01:59.723+03:00  INFO 35196 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T19:01:59.759+03:00  INFO 35196 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 5.372 seconds (process running for 6.302)
+2025-05-01T19:02:00.338+03:00  INFO 35196 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:02:00.340+03:00  INFO 35196 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T19:02:00.345+03:00  INFO 35196 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T19:02:27.424+03:00  INFO 31396 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 31396 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T19:02:27.425+03:00  INFO 31396 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T19:02:28.431+03:00  INFO 31396 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T19:02:28.522+03:00  INFO 31396 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 5 JPA repository interfaces.
+2025-05-01T19:02:29.066+03:00  INFO 31396 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T19:02:29.148+03:00  INFO 31396 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T19:02:29.197+03:00  INFO 31396 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T19:02:29.558+03:00  INFO 31396 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T19:02:29.593+03:00  INFO 31396 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T19:02:29.771+03:00  INFO 31396 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@a1cb94
+2025-05-01T19:02:29.772+03:00  INFO 31396 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T19:02:29.798+03:00  WARN 31396 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T19:02:29.814+03:00  INFO 31396 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T19:02:30.693+03:00  INFO 31396 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T19:02:30.856+03:00  INFO 31396 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:02:31.421+03:00  WARN 31396 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T19:02:32.068+03:00  INFO 31396 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T19:02:32.422+03:00  INFO 31396 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T19:02:32.457+03:00  INFO 31396 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 5.348 seconds (process running for 6.364)
+2025-05-01T19:02:32.925+03:00  INFO 31396 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:02:32.927+03:00  INFO 31396 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T19:02:32.933+03:00  INFO 31396 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T19:03:32.144+03:00  INFO 25084 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 25084 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T19:03:32.145+03:00  INFO 25084 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T19:03:33.202+03:00  INFO 25084 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T19:03:33.294+03:00  INFO 25084 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 5 JPA repository interfaces.
+2025-05-01T19:03:33.963+03:00  INFO 25084 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T19:03:34.035+03:00  INFO 25084 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T19:03:34.102+03:00  INFO 25084 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T19:03:34.504+03:00  INFO 25084 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T19:03:34.534+03:00  INFO 25084 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T19:03:34.742+03:00  INFO 25084 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7c206b14
+2025-05-01T19:03:34.743+03:00  INFO 25084 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T19:03:34.783+03:00  WARN 25084 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T19:03:34.802+03:00  INFO 25084 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T19:03:35.960+03:00  INFO 25084 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T19:03:36.144+03:00  INFO 25084 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:03:36.810+03:00  WARN 25084 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T19:03:37.716+03:00  INFO 25084 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T19:03:38.097+03:00  INFO 25084 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T19:03:38.139+03:00  INFO 25084 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 6.307 seconds (process running for 7.128)
+2025-05-01T19:03:38.645+03:00  INFO 25084 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:03:38.647+03:00  INFO 25084 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T19:03:38.651+03:00  INFO 25084 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T19:05:49.136+03:00  INFO 11684 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 11684 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T19:05:49.137+03:00  INFO 11684 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T19:05:49.998+03:00  INFO 11684 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T19:05:50.081+03:00  INFO 11684 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2025-05-01T19:05:50.717+03:00  INFO 11684 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T19:05:50.732+03:00  INFO 11684 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T19:05:50.732+03:00  INFO 11684 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T19:05:50.782+03:00  INFO 11684 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T19:05:50.782+03:00  INFO 11684 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1603 ms
+2025-05-01T19:05:50.934+03:00  INFO 11684 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T19:05:51.006+03:00  INFO 11684 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T19:05:51.069+03:00  INFO 11684 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T19:05:51.356+03:00  INFO 11684 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T19:05:51.397+03:00  INFO 11684 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T19:05:51.575+03:00  INFO 11684 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7853363c
+2025-05-01T19:05:51.577+03:00  INFO 11684 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T19:05:51.627+03:00  WARN 11684 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T19:05:51.655+03:00  INFO 11684 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T19:05:52.589+03:00  INFO 11684 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T19:05:52.771+03:00  INFO 11684 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:05:53.302+03:00  WARN 11684 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T19:05:53.855+03:00  INFO 11684 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T19:05:54.154+03:00  INFO 11684 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T19:05:54.201+03:00  INFO 11684 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T19:05:54.207+03:00  INFO 11684 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 5.481 seconds (process running for 6.086)
+2025-05-01T19:06:00.962+03:00  INFO 11684 --- [signalseek] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-01T19:06:00.963+03:00  INFO 11684 --- [signalseek] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-01T19:06:00.965+03:00  INFO 11684 --- [signalseek] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-01T19:06:01.389+03:00  INFO 11684 --- [signalseek] [http-nio-8080-exec-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 369 ms
+2025-05-01T19:06:47.085+03:00  WARN 11684 --- [signalseek] [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('r' (code 114)): was expecting double-quote to start field name]
+2025-05-01T19:06:48.780+03:00  WARN 11684 --- [signalseek] [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('r' (code 114)): was expecting double-quote to start field name]
+2025-05-01T19:07:22.935+03:00  INFO 11684 --- [signalseek] [http-nio-8080-exec-2] c.f.controller.AdminAuthController       : user123 logged in
+2025-05-01T19:07:35.259+03:00  INFO 11684 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T19:07:35.275+03:00  INFO 11684 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T19:07:35.298+03:00  INFO 11684 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:07:35.307+03:00  INFO 11684 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T19:07:35.318+03:00  INFO 11684 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T19:07:55.243+03:00  INFO 36180 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Starting SignalseekApplication using Java 23.0.2 with PID 36180 (C:\furkanWorks\signalseek\target\classes started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T19:07:55.244+03:00  INFO 36180 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T19:07:56.019+03:00  INFO 36180 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T19:07:56.070+03:00  INFO 36180 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 5 JPA repository interfaces.
+2025-05-01T19:07:56.565+03:00  INFO 36180 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-01T19:07:56.578+03:00  INFO 36180 --- [signalseek] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-01T19:07:56.579+03:00  INFO 36180 --- [signalseek] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-01T19:07:56.624+03:00  INFO 36180 --- [signalseek] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-01T19:07:56.624+03:00  INFO 36180 --- [signalseek] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1328 ms
+2025-05-01T19:07:56.734+03:00  INFO 36180 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T19:07:56.810+03:00  INFO 36180 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T19:07:56.860+03:00  INFO 36180 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T19:07:57.093+03:00  INFO 36180 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T19:07:57.121+03:00  INFO 36180 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T19:07:57.283+03:00  INFO 36180 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64ed18ec
+2025-05-01T19:07:57.284+03:00  INFO 36180 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T19:07:57.333+03:00  WARN 36180 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T19:07:57.355+03:00  INFO 36180 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T19:07:58.220+03:00  INFO 36180 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T19:07:58.399+03:00  INFO 36180 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:07:58.950+03:00  WARN 36180 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T19:07:59.465+03:00  INFO 36180 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T19:07:59.816+03:00  INFO 36180 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T19:07:59.866+03:00  INFO 36180 --- [signalseek] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-01T19:07:59.872+03:00  INFO 36180 --- [signalseek] [main] com.furkantokgoz.SignalseekApplication   : Started SignalseekApplication in 5.01 seconds (process running for 5.753)
+2025-05-01T19:08:03.856+03:00  INFO 36180 --- [signalseek] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-01T19:08:03.867+03:00  INFO 36180 --- [signalseek] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-01T19:08:03.875+03:00  INFO 36180 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:08:03.879+03:00  INFO 36180 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T19:08:03.883+03:00  INFO 36180 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-01T19:08:13.519+03:00  INFO 26336 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Starting SignalseekApplicationTests using Java 23.0.2 with PID 26336 (started by Admin in C:\furkanWorks\signalseek)
+2025-05-01T19:08:13.521+03:00  INFO 26336 --- [signalseek] [main] c.f.SignalseekApplicationTests           : No active profile set, falling back to 1 default profile: "default"
+2025-05-01T19:08:14.712+03:00  INFO 26336 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-01T19:08:14.817+03:00  INFO 26336 --- [signalseek] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 5 JPA repository interfaces.
+2025-05-01T19:08:15.560+03:00  INFO 26336 --- [signalseek] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-01T19:08:15.634+03:00  INFO 26336 --- [signalseek] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-01T19:08:15.683+03:00  INFO 26336 --- [signalseek] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-01T19:08:16.128+03:00  INFO 26336 --- [signalseek] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-01T19:08:16.176+03:00  INFO 26336 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-01T19:08:16.407+03:00  INFO 26336 --- [signalseek] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@14239223
+2025-05-01T19:08:16.408+03:00  INFO 26336 --- [signalseek] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-01T19:08:16.447+03:00  WARN 26336 --- [signalseek] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-01T19:08:16.467+03:00  INFO 26336 --- [signalseek] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-01T19:08:17.473+03:00  INFO 26336 --- [signalseek] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-01T19:08:17.658+03:00  INFO 26336 --- [signalseek] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:08:18.307+03:00  WARN 26336 --- [signalseek] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-01T19:08:19.151+03:00  INFO 26336 --- [signalseek] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-01T19:08:19.540+03:00  INFO 26336 --- [signalseek] [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-01T19:08:19.587+03:00  INFO 26336 --- [signalseek] [main] c.f.SignalseekApplicationTests           : Started SignalseekApplicationTests in 6.392 seconds (process running for 7.57)
+2025-05-01T19:08:20.243+03:00  INFO 26336 --- [signalseek] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-01T19:08:20.246+03:00  INFO 26336 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-01T19:08:20.256+03:00  INFO 26336 --- [signalseek] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

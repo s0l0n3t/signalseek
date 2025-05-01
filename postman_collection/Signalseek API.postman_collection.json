@@ -1,0 +1,1005 @@
+{
+	"info": {
+		"_postman_id": "cd1de04c-2892-4d84-91ee-53c98494fda4",
+		"name": "Signalseek API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24193002"
+	},
+	"item": [
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDU4Nzk0OTIsImV4cCI6MTc0NTk2NTg5Mn0.fFkbuEhtATOb5CDsTtNO1k7q7CJikZOLrcT2Jht2DFw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/room/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"room",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user/all",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDU0ODg2MjAsImV4cCI6MTc0NTU3NTAyMH0.xh5PeeU7Z-il1LytFkhrxeR-xvk7O3SXNWp1I7hbWAc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/user/deletebyuserkey?userKey=admin123",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 500\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData.timestamp).to.exist;\r",
+							"  pm.expect(responseData.status).to.exist;\r",
+							"  pm.expect(responseData.error).to.exist;\r",
+							"  pm.expect(responseData.path).to.exist;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Timestamp is in a valid date format\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData.timestamp).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3}Z$/);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "userKey",
+						"value": "asd123",
+						"type": "text"
+					},
+					{
+						"key": "ipAddress",
+						"value": "123.123.123.123",
+						"type": "text"
+					},
+					{
+						"key": "latitude",
+						"value": "10.5",
+						"type": "text"
+					},
+					{
+						"key": "longitude",
+						"value": "12.4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userKey\":\"as123\"\r\n    \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/deletebyuserkey?userKey=admin176",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"deletebyuserkey"
+					],
+					"query": [
+						{
+							"key": "userKey",
+							"value": "admin176"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ipaddress",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/find?ipAddress=128.1.1.1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"find"
+					],
+					"query": [
+						{
+							"key": "ipAddress",
+							"value": "128.1.1.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userkey",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDUzMjI3NDksImV4cCI6MTc0NTQwOTE0OX0.jtPO1lKe28h0LHkcUzuOjVpP4GpFWRsJeClRlwWJxrY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/find?userKey=admin135",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"find"
+					],
+					"query": [
+						{
+							"key": "userKey",
+							"value": "admin135"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 500\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData.timestamp).to.exist;\r",
+							"  pm.expect(responseData.status).to.exist;\r",
+							"  pm.expect(responseData.error).to.exist;\r",
+							"  pm.expect(responseData.path).to.exist;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Timestamp is in a valid date format\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData.timestamp).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3}Z$/);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Status</th>\r",
+							"        <th>Message</th>\r",
+							"        <th>Timestamp</th>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>{{response.status}}</td>\r",
+							"        <td>{{response.message}}</td>\r",
+							"        <td>{{response.timestamp}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "userKey",
+						"value": "asd123",
+						"type": "text"
+					},
+					{
+						"key": "ipAddress",
+						"value": "123.123.123.123",
+						"type": "text"
+					},
+					{
+						"key": "latitude",
+						"value": "10.5",
+						"type": "text"
+					},
+					{
+						"key": "longitude",
+						"value": "12.4",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer yJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEzNSIsImlhdCI6MTc0NTI1MzI4MiwiZXhwIjoxNzQ1MzM5NjgyfQ.AMO3N2kS9I8vINFIlurvdC6p0USYCb-XWhCIAvyaSCw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userKey\":\"admin138\",\r\n    \"roomKey\":\"room124\",\r\n    \"latitude\":3.5,\r\n    \"longitude\":3.6,\r\n    \"ipAddress\":\"128.0.0.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"create"
+					]
+				},
+				"description": "### Create Test User\n\nThis endpoint allows the creation of a test user.\n\n#### Request Body\n\n- `userKey` (string, required): The key associated with the user.\n    \n\n#### Response\n\n- `status` (integer): The status of the response.\n    \n- `timestamp` (string): The timestamp of the response.\n    \n- `error` (string): Any error message associated with the response.\n    \n- `path` (string): The path associated with the response."
+			},
+			"response": []
+		},
+		{
+			"name": "createRoom",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"roomKey\":\"room123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/room/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"room",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findroomKey",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/room/find?roomKey=room123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"room",
+						"find"
+					],
+					"query": [
+						{
+							"key": "roomKey",
+							"value": "room123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "roomkey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/find?roomKey=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"find"
+					],
+					"query": [
+						{
+							"key": "roomKey",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "moveUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYWRtaW4xMzgiLCJpYXQiOjE3NDYwMTUwODksImV4cCI6MTc0NjEwMTQ4OX0.dmWDerYI3sotDK0AdiEKeD3sK62YfoegSeyMaZlaTMo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/move?userKey=admin138&latitude=4.7&longitude=4.4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"move"
+					],
+					"query": [
+						{
+							"key": "userKey",
+							"value": "admin138"
+						},
+						{
+							"key": "latitude",
+							"value": "4.7"
+						},
+						{
+							"key": "longitude",
+							"value": "4.4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userUpdateByUserKey",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userKey\": \"admin156\",\r\n    \"ipAddress\": \"128.0.0.1\",\r\n    \"latitude\": 13.3,\r\n    \"longitude\": 4.4,\r\n    \"roomKey\": \"room123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/update?userKey=admin156",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"update"
+					],
+					"query": [
+						{
+							"key": "userKey",
+							"value": "admin156"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"user123\",\r\n    \"password\":\"admin123\",\r\n    \"email\":\"furkantokgoz\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMTIzIiwiaWF0IjoxNzQ1MDIwODU3LCJleHAiOjE3NDUwMjI2NTd9.p3p5awcTEAMzQIF8nGU0EiFbtWRZGBCvTaLX20UB0Bs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user123\",\r\n    \"password\": \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user123",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/log/find all",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDU4Nzk0OTIsImV4cCI6MTc0NTk2NTg5Mn0.fFkbuEhtATOb5CDsTtNO1k7q7CJikZOLrcT2Jht2DFw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/admin/log/find",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"log",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/admin/log/create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDYwMzAwNjMsImV4cCI6MTc0NjExNjQ2M30.lUVjF3iN1rmcDv6DR3AplJqQGnbDcyAqbUfIQyvH6Kc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"logType\": \"WARN\",\r\n  \"message\": \"test log data\",\r\n  \"loggerName\": \"com.example.db.DatabaseService\",\r\n  \"userName\": \"admin123\",\r\n  \"timestamp\": \"2023-11-15T14:30:00+03:00\",\r\n  \"clientIp\": \"192.168.1.100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/log/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"log",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/admin/log/find?loggername=com.example.db.DatabaseService",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDU4NTcwNTksImV4cCI6MTc0NTk0MzQ1OX0.a_zH-F9w7EMgHcLoyXXm3Hya7pWSVc0PDjJ8pdPzkQc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/admin/log/find?loggerName=com.example.db.DatabaseService",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"log",
+						"find"
+					],
+					"query": [
+						{
+							"key": "loggerName",
+							"value": "com.example.db.DatabaseService"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/admin/log/find?userId=user123",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDU4NTc2OTksImV4cCI6MTc0NTk0NDA5OX0.UslCmc4Jsl4x9MY5AOMtQH7JFoEQ747H6XL0y0yOZ3o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/admin/log/find?userId=admin123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"log",
+						"find"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "admin123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/admin/log/find?id=0",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDU4NTc2OTksImV4cCI6MTc0NTk0NDA5OX0.UslCmc4Jsl4x9MY5AOMtQH7JFoEQ747H6XL0y0yOZ3o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/admin/log/find?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"log",
+						"find"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/admin/log/find?logType=ERROR",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDU4NTc2OTksImV4cCI6MTc0NTk0NDA5OX0.UslCmc4Jsl4x9MY5AOMtQH7JFoEQ747H6XL0y0yOZ3o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/admin/log/find?logType=ERROR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"log",
+						"find"
+					],
+					"query": [
+						{
+							"key": "logType",
+							"value": "ERROR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/admin/log/delete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIl0sInN1YiI6InVzZXIxMjMiLCJpYXQiOjE3NDU4Nzk0OTIsImV4cCI6MTc0NTk2NTg5Mn0.fFkbuEhtATOb5CDsTtNO1k7q7CJikZOLrcT2Jht2DFw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/log/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"log",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
