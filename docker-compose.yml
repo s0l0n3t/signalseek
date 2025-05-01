@@ -1,0 +1,43 @@
+version: '3.8'
+
+networks:
+  signalseek-net:
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: dbms
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: signalseek
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - signalseek-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: signalseekapi
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    networks:
+      - signalseek-net
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/signalseek
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_JPA_HIBERNATE_DDL-AUTO: update
+
+volumes:
+  postgres_data:
