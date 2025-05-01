@@ -7,6 +7,9 @@ import com.furkantokgoz.security.jwt.JwtUtil;
 import com.furkantokgoz.service.AdminUserServiceImpl;
 import com.furkantokgoz.service.ApplicationLogServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,7 @@ import java.util.List;
 
 
 @RestController
+@Tag(name="Admin API")
 @RequestMapping("/admin")
 public class AdminAuthController {
     private final static Logger logger = LoggerFactory.getLogger(AdminAuthController.class);
@@ -28,7 +32,12 @@ public class AdminAuthController {
     private AdminUserServiceImpl adminUserService;
     @Autowired
     private ApplicationLogServiceImpl applicationLogService;
-    @Operation(summary = "admin login endpoint")
+    @Operation(summary = "admin login endpoint",description = "Everybody can reach this endpoint")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "You reach admin Json Web Token"),
+            @ApiResponse(responseCode = "404", description = "service out of usable"),
+            @ApiResponse(responseCode = "403", description = "username or password uncorrect.")
+    })
     @PostMapping("/login")
     public ResponseEntity adminLogin(@RequestBody AdminUserDto adminUserDto) {
         try{
@@ -46,6 +55,11 @@ public class AdminAuthController {
         }
     }
 
+    @Operation(summary = "admin login endpoint",description = "Everybody can reach this endpoint")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "You created an account"),
+            @ApiResponse(responseCode = "404", description = "service out of usable")
+    })
     @PostMapping("/register")
     public ResponseEntity<AdminUserDto> registerUser(@RequestBody AdminUserDto adminUserDto) {
         logger.info(LoggerConfigBean.userCrated(Roles.ROLE_ADMIN,adminUserDto.getUsername(),applicationLogService,adminUserService.getClass().getSimpleName()));

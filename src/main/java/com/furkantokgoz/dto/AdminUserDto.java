@@ -1,5 +1,7 @@
 package com.furkantokgoz.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,10 +17,15 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class AdminUserDto implements UserDetails {
+    @Schema(name = "Admin user id",example = "1", required = true)
     private long id;
+    @Schema(name = "Admin username")
     private String username;
+    @Schema(name = "Admin password. This password will encrypt as one time")
     private String password;
+    @Schema(name = "Admin email")
     private String email;
+    @Schema(name = "Admin permission list")
     private Collection<? extends GrantedAuthority> getAuthorities; //no authority
 
     @Override

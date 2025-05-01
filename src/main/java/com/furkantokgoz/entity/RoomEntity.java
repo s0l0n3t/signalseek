@@ -1,5 +1,6 @@
 package com.furkantokgoz.entity;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Hidden
 public class RoomEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

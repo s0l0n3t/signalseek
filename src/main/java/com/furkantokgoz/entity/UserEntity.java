@@ -1,6 +1,7 @@
 package com.furkantokgoz.entity;
 
 
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,6 +18,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Hidden
 public class UserEntity implements Serializable {
 
     @Id

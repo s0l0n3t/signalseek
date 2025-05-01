@@ -11,6 +11,10 @@ import com.furkantokgoz.service.AdminUserServiceImpl;
 import com.furkantokgoz.service.ApplicationLogServiceImpl;
 import com.furkantokgoz.service.RoomServiceImpl;
 import com.furkantokgoz.service.UserServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +31,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@Tag(name="User API")
 public class UserController {
 
     private final static Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -44,10 +49,22 @@ public class UserController {
     private AdminUserServiceImpl adminUserServiceImpl;
     @Autowired
     private ApplicationLogServiceImpl applicationLogServiceImpl;
+
+    @Operation(summary = "service health check",description = "Everybody can reach here")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "service out of usable")
+    })
     @GetMapping("/status")
     public ResponseEntity<HttpStatus> controllerTest() {
         return ResponseEntity.status(HttpStatus.OK).body(HttpStatus.OK);
     }//move to new controller
+    @Operation(summary = "creating a user",description = "Everybody can reach here")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "You created a room"),
+            @ApiResponse(responseCode = "404", description = "service out of usable"),
+            @ApiResponse(responseCode = "403", description = "if there is not a room or there is a user as this userkey")
+    })
     @PostMapping("/create")
     public ResponseEntity createUser(@RequestBody UserDto userDto) {
         userService.createUser(userDto);
@@ -55,12 +72,24 @@ public class UserController {
         userDto.setAuthorities(List.of(new SimpleGrantedAuthority("ROLE_USER")));
         return ResponseEntity.status(HttpStatus.CREATED).body(jwtUtil.generateToken(userDto.getUserKey(),userDto.getAuthorities()));
     }
+    @Operation(summary = "find all users",description = "Admin perm can reach")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "you found all users"),
+            @ApiResponse(responseCode = "404", description = "service out of usable"),
+            @ApiResponse(responseCode = "403", description = "if you don't have admin permission")
+    })
     @GetMapping("/all")
     public ResponseEntity<List<UserDto>> findAllUsers() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         logger.info(LoggerConfigBean.userAllCalled(Roles.ROLE_ADMIN,auth.getName(),applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.OK).body(userService.getAllUsers());
     }
+    @Operation(summary = "updating a user",description = "Every user can reach self endpoint")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "You updated a room"),
+            @ApiResponse(responseCode = "404", description = "service out of usable"),
+            @ApiResponse(responseCode = "403", description = "Permission denied")
+    })
     @PutMapping("/update")
     public ResponseEntity updateUser(@RequestBody UserDto userDto,@RequestParam String userKey) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -71,7 +100,12 @@ public class UserController {
         logger.error(LoggerConfigBean.errorRequestLog(userKey,auth,applicationLogServiceImpl,userService.getClass().getName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
-    //find user
+    @Operation(summary = "find a user by id",description = "room perms can reach here")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "You found a room"),
+            @ApiResponse(responseCode = "404", description = "Service out of usable"),
+            @ApiResponse(responseCode = "403", description = "Permission denied")
+    })
     @GetMapping(value = "/find", params = "id")
     public ResponseEntity findUserById(@RequestParam Long id) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -82,6 +116,12 @@ public class UserController {
         logger.error(LoggerConfigBean.errorRequestLog(id.toString(),auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
+    @Operation(summary = "find a user by userkey",description = "room perms can reach here")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "You found a room"),
+            @ApiResponse(responseCode = "404", description = "Service out of usable"),
+            @ApiResponse(responseCode = "403", description = "Permission denied")
+    })
     @GetMapping(value = "/find", params = "userKey")
     public ResponseEntity findUserByUserKey(@RequestParam String userKey) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -93,6 +133,12 @@ public class UserController {
         logger.error(LoggerConfigBean.errorRequestLog(userKey,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
+    @Operation(summary = "find a user by roomkey",description = "room perms can reach here")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "You found a room"),
+            @ApiResponse(responseCode = "404", description = "Service out of usable"),
+            @ApiResponse(responseCode = "403", description = "Permission denied")
+    })
     @GetMapping(value = "/find", params = "roomKey")
     public ResponseEntity findUsersByRoomkey(@RequestParam String roomKey) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -103,6 +149,12 @@ public class UserController {
         logger.error(LoggerConfigBean.errorRequestLog(roomKey,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }//list, users by room
+    @Operation(summary = "find a user by ip address",description = "room perms can reach here")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "You found a room"),
+            @ApiResponse(responseCode = "404", description = "Service out of usable"),
+            @ApiResponse(responseCode = "403", description = "Permission denied")
+    })
     @GetMapping(value = "/find",params = "ipAddress")
     public ResponseEntity findUserByIpAddress(@RequestParam String ipAddress) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -113,6 +165,12 @@ public class UserController {
         logger.error(LoggerConfigBean.errorRequestLog(ipAddress,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }//list
+    @Operation(summary = "delete a user by userkey",description = "self userkey perms can reach")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "You deleted a user"),
+            @ApiResponse(responseCode = "404", description = "Service out of usable"),
+            @ApiResponse(responseCode = "403", description = "Permission denied")
+    })
     @DeleteMapping("/deletebyuserkey")
     public ResponseEntity deleteUser(@RequestParam String userKey) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -123,6 +181,12 @@ public class UserController {
         logger.error(LoggerConfigBean.errorRequestLog(userKey,auth,applicationLogServiceImpl,userService.getClass().getSimpleName()));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoggerConfigBean.UNAUTHENTICATED);
     }
+    @Operation(summary = "added a new geolocation",description = "self user perm can reach")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "request done"),
+            @ApiResponse(responseCode = "404", description = "Service out of usable"),
+            @ApiResponse(responseCode = "403", description = "Permission denied")
+    })
     @PostMapping(value = "/move")
     public ResponseEntity moveUser(@RequestParam(name = "userKey") String userKey, @RequestParam(name = "latitude") Double latitude,@RequestParam(name = "longitude") Double longitude) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
