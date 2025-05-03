@@ -42,7 +42,6 @@ public class SpringSecurityConfig {
                                 "/user/status",
                                 "/room/create",
                                 "/admin/login",
-                                "/admin/register",
                                 "/h2-console",
                                 "/h2-console/**"
                         ).permitAll()
@@ -61,6 +60,7 @@ public class SpringSecurityConfig {
                         .requestMatchers(
                                 "/user/all",
                                 "/admin/log/**",
+                                "/admin/register",
                                 "/room/all").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session

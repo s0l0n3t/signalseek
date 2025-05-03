@@ -22,7 +22,7 @@ FROM openjdk:17-jdk-slim
 
 WORKDIR signalseek
 
-# JAR dosyasını kopyala (local build gerektirir)
+# copy JAR file
 COPY target/signalseek-*.jar signalseekapi.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "signalseekapi.jar"]
